@@ -4,12 +4,12 @@ export var distance = 50.0
 
 onready var sprite = $Sprite
 
+var direction = Vector2(0, 0)
+
 func _process(delta):
   aim()
 
 func aim():
-  var direction = Vector2(0, 0)
-
   direction.x = Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left")
   direction.y = Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 

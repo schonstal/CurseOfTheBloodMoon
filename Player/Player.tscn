@@ -75,6 +75,7 @@ position = Vector2( 1, 0 )
 [node name="Weapon" type="Node2D" parent="YSort"]
 position = Vector2( 114.88, 0.438446 )
 script = ExtResource( 6 )
+distance = 200.0
 
 [node name="Sprite" type="Sprite" parent="YSort/Weapon"]
 position = Vector2( 0, -50 )
