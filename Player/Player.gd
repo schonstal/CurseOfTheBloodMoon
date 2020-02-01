@@ -2,10 +2,13 @@ extends KinematicBody2D
 
 export var run_speed = 300.0
 
+const RIGHT = -1
+const LEFT = 1
+
 var velocity = Vector2(0, 0)
 var acceleration = Vector2(0, 0)
 
-var facing = RIGHT setget set_facing,get_facing
+var facing = LEFT setget set_facing,get_facing
 
 const RIGHT = -1
 const LEFT = 1
