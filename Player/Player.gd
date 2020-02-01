@@ -10,16 +10,19 @@ var acceleration = Vector2(0, 0)
 
 var facing = LEFT setget set_facing,get_facing
 
-const RIGHT = -1
-const LEFT = 1
+onready var animation = $Body/AnimationPlayer
 
 func _ready():
   pass
 
 func _physics_process(delta):
   handle_movement()
+  velocity = move_and_slide(velocity)
 
-  move_and_slide(velocity)
+  if velocity.length() > 0:
+    animation.play("Run")
+  else:
+    animation.play("Idle")
 
 func handle_movement():
   var direction = Vector2(0, 0)
