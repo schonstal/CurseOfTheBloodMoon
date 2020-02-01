@@ -10,7 +10,7 @@ var acceleration = Vector2(0, 0)
 
 var facing = LEFT setget set_facing,get_facing
 
-onready var animation = $Body/AnimationPlayer
+onready var animation = $YSort/Body/AnimationPlayer
 
 func _ready():
   pass
@@ -27,21 +27,13 @@ func _physics_process(delta):
 func handle_movement():
   var direction = Vector2(0, 0)
 
-  if Input.is_action_pressed("move_left"):
-    direction.x = -1
-    self.facing = LEFT
-  elif Input.is_action_pressed("move_right"):
-    direction.x = 1
-    self.facing = RIGHT
+  direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+  direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
-  if Input.is_action_pressed("move_up"):
-    direction.y = -1
-  elif Input.is_action_pressed("move_down"):
-    direction.y = 1
-
-  direction = direction.normalized()
-
-  velocity = direction * run_speed
+  if direction.length() > 0.3:
+    velocity = direction * run_speed
+  else:
+    velocity = Vector2.ZERO
 
 
 func set_facing(value):
