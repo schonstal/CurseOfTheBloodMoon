@@ -32,6 +32,7 @@ func _ready():
 
   iframe_timer.connect("timeout", self, "_on_IframeTimer_timeout")
   animation.connect("animation_finished", self, "_on_Animation_finished")
+  EventBus.connect("blood_paid", self, "_on_blood_paid")
 
 func _physics_process(delta):
   handle_movement()
@@ -68,6 +69,15 @@ func handle_movement():
   else:
     velocity = Vector2.ZERO
 
+func _on_blood_paid(amount):
+  health -= amount
+  if health <= 0:
+    die()
+  if health >= max_health:
+    health = max_health
+
+  EventBus.emit_signal("player_hurt", health)
+
 func hurt(damage):
   if !alive || invulnerable:
     return
@@ -80,7 +90,7 @@ func hurt(damage):
   if health <= 0:
     die()
 
-  EventBus.emit_signal("player_hurt", health, max_health)
+  EventBus.emit_signal("player_hurt", health)
   EventBus.emit_signal("shake_camera", 0.25, 60, 5)
   Overlay.fade(Color(0.733, 0.145, 0.192, 0.4), Color(0.733, 0.145, 0.192, 0), 0.3)
 

@@ -4,4 +4,6 @@
 
 [node name="MachineGun" type="Node2D"]
 script = ExtResource( 1 )
-shoot_rate = null
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0

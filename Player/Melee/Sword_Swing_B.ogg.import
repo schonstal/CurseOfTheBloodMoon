@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sword_Swing_B.ogg-e2b5bffcccc86146a79020e1d878390c.oggstr"
+
+[deps]
+
+source_file="res://Player/Melee/Sword_Swing_B.ogg"
+dest_files=[ "res://.import/Sword_Swing_B.ogg-e2b5bffcccc86146a79020e1d878390c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

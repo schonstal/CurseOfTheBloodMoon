@@ -8,7 +8,7 @@ var game_over_layer:Node
 
 onready var is_game_over = false
 
-var game_over_scene = preload("res://GameOver/GameOver.tscn")
+var game_over_scene = preload("res://UI/GameOver/GameOver.tscn")
 var game_over_node
 
 var score = 0
@@ -23,7 +23,9 @@ func _enter_tree():
   Game.initialize()
 
 func _ready():
+  MusicPlayer.play_file("res://Music/gameplay.ogg")
   EventBus.connect("shake_camera", self, "shake")
+  EventBus.connect("game_over", self, "game_over")
   Engine.time_scale = 1
   reset_score()
 

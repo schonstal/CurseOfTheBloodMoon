@@ -1,5 +1,6 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
+[ext_resource path="res://Player/RunSound.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.gd" type="Script" id=3]
 [ext_resource path="res://ReflectedSprite.gd" type="Script" id=4]
@@ -301,6 +302,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 8, 9, 10, 11, 12 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("../../RunSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_step_sound"
+}, {
+"args": [  ],
+"method": "play_step_sound"
+} ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 8
@@ -322,7 +340,7 @@ distance = 70.0
 position = Vector2( 0, -50 )
 texture = ExtResource( 5 )
 hframes = 24
-frame = 22
+frame = 21
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Weapon/Skull"]
@@ -351,6 +369,7 @@ position = Vector2( -1, 0 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -60 )
 hframes = 13
+frame = 8
 script = ExtResource( 4 )
 z_offset = 110
 
@@ -362,3 +381,7 @@ anims/Run = SubResource( 20 )
 
 [node name="IframeTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="RunSound" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+script = ExtResource( 1 )

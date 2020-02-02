@@ -3,7 +3,6 @@ extends Node2D
 
 onready var flash_tween = $FlashTween
 onready var grow_tween = $GrowTween
-onready var shrink_tween = $ShrinkTween
 
 onready var bar = $Bar
 onready var back = $Back
@@ -23,37 +22,11 @@ func _ready():
   if Engine.editor_hint:
     return
 
+  max_amount = Game.scene.player.max_health
+  bar.color = color
+
   EventBus.connect("player_hurt", self, "_on_player_hurt")
-  shrink_tween.connect("tween_completed", self, "_on_ShrinkTween_tween_completed")
-
-func _process(_delta):
-  var fill_length = bar_length + 50
-  if bar != null:
-    bar.rect_size.y = percent * fill_length
-    back.rect_size.y = fill_length
-    container.length = bar_length
-
-func deactivate():
-  bar.margin_top = bar.margin_bottom
-  active = false
-
-func update_bar(amount):
-  percent = float(amount) / max_amount
-
-func _on_boss_hurt(health):
-  update_bar(health)
-
-func _on_boss_start(max_health, index):
-  for c in containers:
-    c.visible = false
-
-  container = containers[index]
-  container.visible = true
-  bar.color = colors[index]
-
-  visible = true
   percent = 1.0
-  max_amount = max_health
 
   grow_tween.interpolate_property(
       self,
@@ -66,48 +39,26 @@ func _on_boss_start(max_health, index):
 
   grow_tween.start()
 
+func _process(_delta):
+  var fill_length = bar_length + 50
+  if bar != null:
+    bar.rect_size.x = percent * fill_length
+    back.rect_size.x = fill_length
+    container.length = bar_length
+
+func update_bar(amount):
+  percent = float(amount) / max_amount
+
+func _on_player_hurt(health):
   flash_tween.interpolate_property(
-      self,
+      bar,
       "modulate",
       Color(10, 10, 10, 1),
-      Color(1, 1, 1, 1),
+      color,
       0.3,
       Tween.TRANS_QUART,
       Tween.EASE_OUT)
 
   flash_tween.start()
 
-func _on_boss_defeated():
-  flash_tween.interpolate_property(
-      self,
-      "modulate",
-      Color(10, 10, 10, 1),
-      Color(1, 1, 1, 1),
-      0.3,
-      Tween.TRANS_QUART,
-      Tween.EASE_OUT)
-
-  flash_tween.start()
-
-  shrink_tween.interpolate_property(
-      self,
-      "bar_length",
-      bar_length,
-      0,
-      1,
-      Tween.TRANS_QUAD,
-      Tween.EASE_OUT)
-
-  shrink_tween.start()
-
-func _on_ShrinkTween_tween_completed(_object, _key):
-  flash_tween.interpolate_property(
-      self,
-      "modulate",
-      Color(1, 1, 1, 1),
-      Color(1, 1, 1, 0),
-      0.5,
-      Tween.TRANS_QUART,
-      Tween.EASE_OUT)
-
-  flash_tween.start()
+  update_bar(health)

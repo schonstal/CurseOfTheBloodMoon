@@ -1,15 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://UI/HUD/HealthBar/BossHUDBottom.png" type="Texture" id=3]
+[ext_resource path="res://UI/HUD/MoonBar/HUDMain.png" type="Texture" id=1]
+[ext_resource path="res://UI/HUD/MoonBar/HUDCap.png" type="Texture" id=2]
+[ext_resource path="res://UI/HUD/MoonBar/HUDHealthBar.png" type="Texture" id=3]
 [ext_resource path="res://UI/HUD/HealthBar/Container.gd" type="Script" id=4]
-[ext_resource path="res://UI/HUD/HealthBar/BossHUDSide.png" type="Texture" id=6]
-[ext_resource path="res://UI/HUD/HealthBar/BlueLordHUDBack.png" type="Texture" id=7]
 [ext_resource path="res://UI/HUD/HealthBar/HealthBar.gd" type="Script" id=8]
-[ext_resource path="res://UI/HUD/HealthBar/BossHUDTop.png" type="Texture" id=9]
 
 [node name="HealthBar" type="Node2D"]
 script = ExtResource( 8 )
-bar_length = 800
+bar_length = 730
 
 [node name="FlashTween" type="Tween" parent="."]
 
@@ -17,51 +16,43 @@ bar_length = 800
 
 [node name="ShrinkTween" type="Tween" parent="."]
 
-[node name="BlueLordHUDBack" type="Sprite" parent="."]
-position = Vector2( 0, -20 )
-texture = ExtResource( 7 )
-
 [node name="Back" type="ColorRect" parent="."]
-margin_left = -20.0
-margin_top = -60.0
-margin_right = 20.0
-margin_bottom = 790.0
+margin_left = 95.0
+margin_top = 5.0
+margin_right = 875.0
+margin_bottom = 25.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Bar" type="ColorRect" parent="."]
-margin_left = -20.0
-margin_top = -60.0
-margin_right = 20.0
-margin_bottom = -60.0
+margin_left = 95.0
+margin_top = 5.0
+margin_right = 95.0
+margin_bottom = 25.0
 color = Color( 0.596078, 0.25098, 0.878431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Main" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
 [node name="Container" type="Node2D" parent="."]
 script = ExtResource( 4 )
-length = 800
-
-[node name="Left" type="Sprite" parent="Container"]
-position = Vector2( -37, -40 )
-texture = ExtResource( 6 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 27, 800 )
+length = 730
 
 [node name="Right" type="Sprite" parent="Container"]
-position = Vector2( 35, -40 )
-rotation = -3.14159
-scale = Vector2( 1, -1 )
-texture = ExtResource( 6 )
+position = Vector2( 780, 0 )
+texture = ExtResource( 2 )
 centered = false
-region_enabled = true
 region_rect = Rect2( 0, 0, 27, 800 )
 
-[node name="Bottom" type="Sprite" parent="Container"]
-position = Vector2( 0, 810 )
+[node name="Middle" type="Sprite" parent="Container"]
+position = Vector2( 119, 0 )
 texture = ExtResource( 3 )
-
-[node name="Top" type="Sprite" parent="Container"]
-position = Vector2( 0, -92 )
-texture = ExtResource( 9 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 730, 30 )
