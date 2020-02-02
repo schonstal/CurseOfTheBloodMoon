@@ -103,7 +103,3 @@ func _on_Flash_timer_timeout():
     modulate = Color(0, 0, 0, 1)
     flashed = true
     flash_timer.start(flash_time)
-
-func _on_body_entered(body):
-  if body.has_method("hurt"):
-    body.hurt(1)

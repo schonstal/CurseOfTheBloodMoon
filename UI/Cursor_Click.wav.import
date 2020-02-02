@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cursor_Click.wav-8b83fadf1e2ef9756d0be9c881004bce.sample"
+
+[deps]
+
+source_file="res://UI/Cursor_Click.wav"
+dest_files=[ "res://.import/Cursor_Click.wav-8b83fadf1e2ef9756d0be9c881004bce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

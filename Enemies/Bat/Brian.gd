@@ -9,7 +9,10 @@ func _ready():
   speed = speed * rand_range(0.5, 1.0)
 
 func _process(delta):
-  var direction = player.global_position - global_position
-  direction = direction.normalized()
+  if is_instance_valid(player):
+    var direction = player.global_position - global_position
+    direction = direction.normalized()
 
-  parent.velocity = speed * direction
+    parent.velocity = speed * direction
+  else:
+    parent.velocity = Vector2.ZERO

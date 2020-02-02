@@ -256,6 +256,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=18]
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -350,7 +351,7 @@ position = Vector2( -1, 0 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -60 )
 hframes = 13
-frame = 3
+frame = 2
 script = ExtResource( 4 )
 z_offset = 110
 
@@ -359,3 +360,6 @@ autoplay = "Idle"
 anims/Hurt = SubResource( 18 )
 anims/Idle = SubResource( 19 )
 anims/Run = SubResource( 20 )
+
+[node name="IframeTimer" type="Timer" parent="."]
+one_shot = true

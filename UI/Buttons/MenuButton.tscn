@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/Buttons/MenuButton.gd" type="Script" id=1]
+[ext_resource path="res://UI/Fonts/Pirata_One-128.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UI/Selector.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Cursor_Move.wav" type="AudioStream" id=4]
+[ext_resource path="res://UI/Cursor_Click.wav" type="AudioStream" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="MenuButton" type="Button"]
+margin_right = 1680.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 360, 160 )
+custom_styles/focus = SubResource( 1 )
+flat = true
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 10
+text = "Label"
+align = 1
+
+[node name="Selectors" type="Node2D" parent="."]
+visible = false
+
+[node name="Left" parent="Selectors" instance=ExtResource( 3 )]
+
+[node name="Right" parent="Selectors" instance=ExtResource( 3 )]
+scale = Vector2( -1, 1 )
+
+[node name="Focus" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+

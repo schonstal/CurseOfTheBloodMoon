@@ -1,6 +1,13 @@
 extends KinematicBody2D
 
 export var run_speed = 300.0
+export var max_health = 1000
+export var iframe_time = 0.1
+
+var alive = true
+var health = 1000
+var stunned = false
+var invulnerable = false
 
 const RIGHT = -1
 const LEFT = 1
@@ -13,19 +20,33 @@ var facing = LEFT setget set_facing,get_facing
 onready var body = $YSort/Body
 onready var animation = $YSort/Body/AnimationPlayer
 onready var aim = $YSort/Weapon
+onready var iframe_timer = $IframeTimer
+
+export(Resource) var explosion_scene = preload("res://Enemies/Bat/BatExplosion.tscn")
+export(Resource) var hurt_sound = preload("res://Enemies/Enemy_Hit.ogg")
+export(Resource) var die_sound = preload("res://Enemies/Bat/Bat_Death.ogg")
 
 func _ready():
-  pass
+  alive = true
+  health = max_health
+
+  iframe_timer.connect("timeout", self, "_on_IframeTimer_timeout")
+  animation.connect("animation_finished", self, "_on_Animation_finished")
 
 func _physics_process(delta):
   handle_movement()
   update_facing()
-  velocity = move_and_slide(velocity)
 
-  if velocity.length() > 0:
+  if stunned:
+    velocity.x = 0
+    velocity.y = 0
+  elif velocity.length() > 0:
     animation.play("Run")
   else:
     animation.play("Idle")
+
+  velocity = move_and_slide(velocity)
+
 
 func update_facing():
   if aim.direction.length() <= 0.4:
@@ -47,6 +68,34 @@ func handle_movement():
   else:
     velocity = Vector2.ZERO
 
+func hurt(damage):
+  if !alive || invulnerable:
+    return
+
+  animation.play("Hurt")
+  stunned = true
+  invulnerable = true
+
+  health -= damage
+  if health <= 0:
+    die()
+
+  EventBus.emit_signal("player_hurt", health, max_health)
+
+  Game.scene.sound.play(hurt_sound, "player_hurt")
+
+func die():
+  alive = false
+  explode()
+  Game.scene.sound.play(die_sound, "player_died")
+  EventBus.emit_signal("game_over")
+  queue_free()
+
+func explode():
+  var explosion = explosion_scene.instance()
+  explosion.global_position = global_position
+  explosion.rotation = rotation
+  Game.scene.bodies.add_child(explosion)
 
 func set_facing(value):
   if value != RIGHT:
@@ -57,3 +106,11 @@ func set_facing(value):
 
 func get_facing():
   return facing
+
+func _on_Animation_finished(animation_name):
+  if animation_name == "Hurt":
+    stunned = false
+    iframe_timer.start(iframe_time)
+
+func _on_IframeTimer_timeout():
+  invulnerable = false
