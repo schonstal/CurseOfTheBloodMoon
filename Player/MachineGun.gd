@@ -22,7 +22,7 @@ func _process(delta):
   if Input.is_action_pressed("shoot"):
     parent.shooting = true
     if shoot_time <= 0:
-      EventBus.emit_signal("blood_paid", 3.0)
+      EventBus.emit_signal("blood_paid", 2.0)
       audio.stream = streams[randi() % streams.size()]
       audio.play()
       spawn_bullet()

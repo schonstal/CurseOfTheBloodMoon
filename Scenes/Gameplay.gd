@@ -12,6 +12,9 @@ var game_over_scene = preload("res://UI/GameOver/GameOver.tscn")
 var game_over_node
 
 var score = 0
+var combo = 1
+var max_combo = 8
+var combo_meter = 0.0
 
 func _enter_tree():
   camera = $Camera2D
@@ -26,6 +29,7 @@ func _ready():
   MusicPlayer.play_file("res://Music/gameplay.ogg")
   EventBus.connect("shake_camera", self, "shake")
   EventBus.connect("game_over", self, "game_over")
+  EventBus.connect("reset_combo", self, "reset_combo")
   Engine.time_scale = 1
   reset_score()
 
@@ -45,13 +49,25 @@ func game_over():
   MusicPlayer.enable_filter()
 
 func increment_score(points):
-  score += points
+  combo_meter += points
+
+  if combo < max_combo && combo_meter >= 100 * combo:
+    combo_meter = 0
+    combo += 1
+    EventBus.emit_signal("combo_increased", combo)
+
+  score += points * combo
 
   if score > Game.high_score:
     Game.high_score = score
 
+func reset_combo():
+  combo = 1
+  combo_meter = 0
+
 func reset_score():
   score = 0
+  combo = 1
 
 func shake(duration = 0.5, frequency = 60, amplitude = 25):
   if camera != null:

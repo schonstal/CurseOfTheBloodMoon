@@ -45,7 +45,7 @@ script = ExtResource( 4 )
 length = 730
 
 [node name="Right" type="Sprite" parent="Container"]
-position = Vector2( 780, 0 )
+position = Vector2( 849, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_rect = Rect2( 0, 0, 27, 800 )

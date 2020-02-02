@@ -5,3 +5,5 @@ signal shake_camera(duration, frequency, amplitude)
 signal player_hurt(health, max_health)
 signal game_over
 signal blood_paid(amount)
+signal combo_increased(combo)
+signal reset_combo

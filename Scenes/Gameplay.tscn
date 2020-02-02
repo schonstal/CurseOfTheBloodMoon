@@ -32,6 +32,111 @@ width_tiles = 30
 [node name="Bat" parent="Bodies" instance=ExtResource( 6 )]
 position = Vector2( 200, 200 )
 
+[node name="Bat6" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 463.698, 338.533 )
+
+[node name="Bat7" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 94.2777, 376.204 )
+
+[node name="Bat8" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( -481.726, 433.318 )
+
+[node name="Bat9" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( -732.057, 230.38 )
+
+[node name="Bat10" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( -766.083, -80.7108 )
+
+[node name="Bat11" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( -687.095, -362.637 )
+
+[node name="Bat12" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( -521.828, -220.459 )
+
+[node name="Bat16" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( -397.878, -15.0901 )
+
+[node name="Bat17" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( -480.511, 129.519 )
+
+[node name="Bat18" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 779.649, 84.5562 )
+
+[node name="Bat19" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 672.712, 204.861 )
+
+[node name="Bat20" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 751.7, 320.305 )
+
+[node name="Bat21" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 686.079, 381.065 )
+
+[node name="Bat22" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 613.167, 292.355 )
+
+[node name="Bat23" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 475.85, 200 )
+
+[node name="Bat24" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 549.977, 85.7714 )
+
+[node name="Bat25" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 701.876, -96.5083 )
+
+[node name="Bat26" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 373.773, 212.152 )
+
+[node name="Bat27" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 537.825, -17.5204 )
+
+[node name="Bat28" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 636.256, 46.8851 )
+
+[node name="Bat29" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 784.51, 181.772 )
+
+[node name="Bat30" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 858.637, 278.988 )
+
+[node name="Bat31" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 845.27, 416.305 )
+
+[node name="Bat32" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 628.965, 475.85 )
+
+[node name="Bat33" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 495.293, 461.268 )
+
+[node name="Bat34" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 333.671, 468.559 )
+
+[node name="Bat35" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 323.95, 360.406 )
+
+[node name="Bat36" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 210.936, 460.053 )
+
+[node name="Bat37" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 230.38, 337.318 )
+
+[node name="Bat38" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 280.203, 258.33 )
+
+[node name="Bat39" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 294.785, 150.177 )
+
+[node name="Bat40" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 445.47, 86.9868 )
+
+[node name="Bat13" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( -173.066, -294.586 )
+
+[node name="Bat14" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 167.19, -352.915 )
+
+[node name="Bat15" parent="Bodies" instance=ExtResource( 6 )]
+position = Vector2( 472.204, -256.915 )
+
 [node name="Bat2" parent="Bodies" instance=ExtResource( 6 )]
 position = Vector2( 345.789, 92.6181 )
 
