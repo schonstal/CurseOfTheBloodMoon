@@ -13,9 +13,12 @@ func _process(delta):
   shoot_time -= delta
 
   if Input.is_action_pressed("shoot"):
+    parent.shooting = true
     if shoot_time <= 0:
       spawn_bullet()
       shoot_time = shoot_frequency
+  else:
+    parent.shooting = false
 
 func spawn_bullet():
   var bullet = bullet_scene.instance()
