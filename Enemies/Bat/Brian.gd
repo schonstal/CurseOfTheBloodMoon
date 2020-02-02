@@ -1,16 +1,15 @@
 extends Node2D
 
+export var speed = 300
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var player = Game.scene.player
+onready var parent = $'..'
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-  pass # Replace with function body.
+  speed = speed * rand_range(0.5, 1.0)
 
+func _process(delta):
+  var direction = player.global_position - global_position
+  direction = direction.normalized()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#  pass
+  parent.velocity = speed * direction

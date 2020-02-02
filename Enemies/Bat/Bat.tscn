@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Enemies/Bat/Bat.png" type="Texture" id=1]
 [ext_resource path="res://ReflectedSprite.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=3]
+[ext_resource path="res://Enemies/Bat/Brian.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -55,3 +56,4 @@ anims/Idle = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Brian" type="Node2D" parent="."]
+script = ExtResource( 4 )
