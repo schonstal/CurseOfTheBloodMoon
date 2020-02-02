@@ -4,7 +4,8 @@ var positions = ["E", "NE", "N", "NW", "W", "SW", "S", "SE"]
 
 export var distance = 50.0
 
-onready var sprite = $Sprite
+onready var sprite = $Skull
+onready var animation = $Skull/AnimationPlayer
 
 var direction = Vector2(0, 0)
 var aim_direction = Vector2(0, 0)
@@ -25,3 +26,8 @@ func aim():
     var angle_ratio = angle_rad / (TAU + PI / 8)
     var anim_index = angle_ratio * positions.size()
     facing = positions[int(anim_index)]
+    var anim = facing
+    if shooting:
+      anim = "%s%s" % [facing, "Attack"]
+    animation.play(anim)
+

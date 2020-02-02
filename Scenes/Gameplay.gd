@@ -23,7 +23,6 @@ func _enter_tree():
   Game.initialize()
 
 func _ready():
-  EventBus.connect("upgrade_collected", self, "_on_upgrade_collected")
   EventBus.connect("shake_camera", self, "shake")
   Engine.time_scale = 1
   reset_score()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bat_Death.ogg-5b475ad7f607f82d21d1dd58cc7b76c8.oggstr"
+
+[deps]
+
+source_file="res://Enemies/Bat/Bat_Death.ogg"
+dest_files=[ "res://.import/Bat_Death.ogg-5b475ad7f607f82d21d1dd58cc7b76c8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
