@@ -98,10 +98,10 @@ func hurt(damage):
 
 func die():
   alive = false
+  visible = false
   explode()
   Game.scene.sound.play(die_sound, "player_died")
   EventBus.emit_signal("game_over")
-  queue_free()
 
 func explode():
   var explosion = explosion_scene.instance()

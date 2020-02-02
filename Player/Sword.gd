@@ -19,5 +19,5 @@ func _on_Animation_finished(_animation_name):
 
 func _on_body_enter(body):
   if body.has_method("hurt"):
-    EventBus.emit_signal("blood_paid", -100)
+    EventBus.emit_signal("blood_paid", -50)
     body.hurt(damage)

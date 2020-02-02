@@ -23,6 +23,9 @@ func _process(delta):
   aim()
 
 func aim():
+  if !Game.scene.player.alive:
+    return
+
   direction.x = Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left")
   direction.y = Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 

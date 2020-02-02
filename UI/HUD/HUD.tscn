@@ -62,6 +62,7 @@ __meta__ = {
 }
 
 [node name="BloodMoon" type="Sprite" parent="."]
+visible = false
 position = Vector2( 39, 41 )
 texture = ExtResource( 5 )
 hframes = 7
