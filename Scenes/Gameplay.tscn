@@ -22,7 +22,12 @@ script = ExtResource( 3 )
 [node name="Player" parent="Bodies" instance=ExtResource( 1 )]
 
 [node name="Wall" parent="Bodies" instance=ExtResource( 5 )]
-width_tiles = 3
+position = Vector2( 0, 466.991 )
+width_tiles = 30
+
+[node name="Wall2" parent="Bodies" instance=ExtResource( 5 )]
+position = Vector2( 0, -506.759 )
+width_tiles = 30
 
 [node name="Bat" parent="Bodies" instance=ExtResource( 6 )]
 position = Vector2( 200, 200 )

@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 
 const UP = Vector2(0, -1)
 
@@ -37,7 +37,7 @@ func _physics_process(delta):
     velocity.x = 0
     velocity.y = 0
 
-  position += velocity * delta
+  velocity = move_and_slide(velocity)
 
 func _ready():
   alive = true
