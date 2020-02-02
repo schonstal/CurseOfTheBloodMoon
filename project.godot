@@ -19,6 +19,13 @@ config/name="Vampire"
 run/main_scene="res://Scenes/Gameplay.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+EventBus="*res://Autoload/EventBus.gd"
+Overlay="*res://Autoload/Overlay.tscn"
+MusicPlayer="*res://Autoload/MusicPlayer.tscn"
+Game="*res://Autoload/Game.gd"
+
 [display]
 
 window/size/width=1920
@@ -74,6 +81,24 @@ aim_right={
 "events": [ Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":0,"axis":2,"axis_value":1.0,"script":null)
  ]
 }
+shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":5,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+melee={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="PlayerAttack"
+2d_physics/layer_4="EnemyAttack"
+2d_physics/layer_5="Walls"
 
 [rendering]
 

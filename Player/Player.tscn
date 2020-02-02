@@ -6,7 +6,7 @@
 [ext_resource path="res://ShadowedSprite.gd" type="Script" id=4]
 [ext_resource path="res://Player/Sword.png" type="Texture" id=5]
 [ext_resource path="res://Player/Weapon.gd" type="Script" id=6]
-[ext_resource path="res://Player/MachineGun.gd" type="Script" id=7]
+[ext_resource path="res://Weapons/MachineGun/MachineGun.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 62.6127, 10 )
@@ -60,6 +60,7 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 8
 script = ExtResource( 3 )
 run_speed = 600.0
 
@@ -81,8 +82,7 @@ distance = 200.0
 position = Vector2( 0, -50 )
 texture = ExtResource( 5 )
 
-[node name="MachineGun" type="Node2D" parent="YSort/Weapon"]
-script = ExtResource( 7 )
+[node name="MachineGun" parent="YSort/Weapon" instance=ExtResource( 7 )]
 
 [node name="Body" type="Sprite" parent="YSort"]
 position = Vector2( -1, 0 )
