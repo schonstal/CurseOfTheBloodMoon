@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WallTop.png-d29fb05693c0da5e0c068cb22f1612fd.stex"
+path="res://.import/CrystalProjectileImpact0002.png-59e82d00d78e8f3874660b53527faafc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arena/Wall/WallTop.png"
-dest_files=[ "res://.import/WallTop.png-d29fb05693c0da5e0c068cb22f1612fd.stex" ]
+source_file="res://Weapons/MachineGun/CrystalProjectileImpact/CrystalProjectileImpact0002.png"
+dest_files=[ "res://.import/CrystalProjectileImpact0002.png-59e82d00d78e8f3874660b53527faafc.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
