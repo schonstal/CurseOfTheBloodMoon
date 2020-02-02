@@ -22,9 +22,9 @@ onready var animation = $YSort/Body/AnimationPlayer
 onready var aim = $YSort/Weapon
 onready var iframe_timer = $IframeTimer
 
-export(Resource) var explosion_scene = preload("res://Enemies/Bat/BatExplosion.tscn")
-export(Resource) var hurt_sound = preload("res://Enemies/Enemy_Hit.ogg")
-export(Resource) var die_sound = preload("res://Enemies/Bat/Bat_Death.ogg")
+export(Resource) var explosion_scene = preload("res://Player/PlayerExplosion.tscn")
+export(Resource) var hurt_sound = preload("res://Player/Hurt.ogg")
+export(Resource) var die_sound = preload("res://Player/Death.ogg")
 
 func _ready():
   alive = true
@@ -81,6 +81,8 @@ func hurt(damage):
     die()
 
   EventBus.emit_signal("player_hurt", health, max_health)
+  EventBus.emit_signal("shake_camera", 0.25, 60, 5)
+  Overlay.fade(Color(0.733, 0.145, 0.192, 0.4), Color(0.733, 0.145, 0.192, 0), 0.3)
 
   Game.scene.sound.play(hurt_sound, "player_hurt")
 

@@ -11,9 +11,6 @@ var attack_time = 0
 onready var sprite = $Skull
 onready var animation = $Skull/AnimationPlayer
 
-onready var sword = $Sword
-onready var sword_animation = $Sword/AnimationPlayer
-
 var direction = Vector2(0, 0)
 var aim_direction = Vector2(0, 0)
 var facing = "E"
