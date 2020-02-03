@@ -17,4 +17,4 @@ func _on_SpawnTimer_timeout():
   var size = rand_range(0.25, 0.75)
   rain.scale = Vector2(size, size)
 
-  Game.scene.bodies.add_child(rain)
+  add_child(rain)

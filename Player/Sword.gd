@@ -1,6 +1,6 @@
 extends Sprite
 
-export var damage = 5
+export var damage = 10
 export var attack_rate = 0.5
 var attack_time = 0
 
@@ -19,5 +19,5 @@ func _on_Animation_finished(_animation_name):
 
 func _on_body_enter(body):
   if body.has_method("hurt"):
-    EventBus.emit_signal("blood_paid", -50)
+    EventBus.emit_signal("blood_paid", -100)
     body.hurt(damage)

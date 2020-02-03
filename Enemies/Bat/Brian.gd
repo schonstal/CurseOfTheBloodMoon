@@ -28,7 +28,6 @@ func _on_SonarTimer_timeout():
     animation.play("Attack")
     var direction = Game.scene.player.global_position - global_position
     parent.velocity = attack_speed * direction.normalized()
-    print(parent.velocity)
   else:
     sonar_timer.wait_time = 0.25
     animation.play("Idle")
