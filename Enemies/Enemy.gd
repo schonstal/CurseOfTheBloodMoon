@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 const UP = Vector2(0, -1)
 
+onready var sprite = $Sprite
+
 export var max_health = 4
 export var points = 100
 export var flash_time = 0.05
@@ -85,7 +87,7 @@ func explode():
   Game.scene.bodies.add_child(explosion)
 
 func flash():
-  modulate = Color(8, 8, 8, 1)
+  sprite.self_modulate = Color(8, 8, 8, 1)
   flashed = false
   flash_timer.start(flash_time)
 
@@ -98,8 +100,8 @@ func _on_Stun_timer_timeout():
 
 func _on_Flash_timer_timeout():
   if flashed:
-    modulate = Color(1, 1, 1, 1)
+    sprite.self_modulate = Color(1, 1, 1, 1)
   else:
-    modulate = Color(0, 0, 0, 1)
+    sprite.self_modulate = Color(0, 0, 0, 1)
     flashed = true
     flash_timer.start(flash_time)
