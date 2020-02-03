@@ -21,6 +21,7 @@ onready var body = $YSort/Body
 onready var animation = $YSort/Body/AnimationPlayer
 onready var aim = $YSort/Weapon
 onready var iframe_timer = $IframeTimer
+onready var camera = $Camera2D
 
 export(Resource) var explosion_scene = preload("res://Player/PlayerExplosion.tscn")
 export(Resource) var hurt_sound = preload("res://Player/Hurt.ogg")

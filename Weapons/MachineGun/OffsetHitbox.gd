@@ -5,4 +5,4 @@ export var offset = 50
 onready var parent = $'..'
 
 func _process(delta):
-  global_position.y = parent.global_position.y + offset
+  global_position = parent.global_position + Vector2(0, offset)

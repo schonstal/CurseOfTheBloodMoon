@@ -17,7 +17,6 @@ var max_combo = 8
 var combo_meter = 0.0
 
 func _enter_tree():
-  camera = $Camera2D
   player = $Bodies/Player
   bodies = $Bodies
   sound = $Sound
@@ -26,6 +25,7 @@ func _enter_tree():
   Game.initialize()
 
 func _ready():
+  camera = player.camera
   MusicPlayer.play_file("res://Music/gameplay.ogg")
   EventBus.connect("shake_camera", self, "shake")
   EventBus.connect("game_over", self, "game_over")

@@ -19,12 +19,14 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[node name="Explosion" type="Sprite"]
+[node name="Explosion" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 offset = Vector2( 0, -45 )
 hframes = 6
-script = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Explode"
 anims/Explode = SubResource( 1 )

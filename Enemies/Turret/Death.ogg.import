@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Death.ogg-b5442be4bfc93d6b4b0e8381be6ddbe8.oggstr"
+
+[deps]
+
+source_file="res://Enemies/Turret/Death.ogg"
+dest_files=[ "res://.import/Death.ogg-b5442be4bfc93d6b4b0e8381be6ddbe8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

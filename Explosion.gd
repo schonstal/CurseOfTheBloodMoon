@@ -1,6 +1,6 @@
-extends Sprite
+extends Node2D
 
-onready var animation = $AnimationPlayer
+onready var animation = $Sprite/AnimationPlayer
 
 func _ready():
   animation.connect("animation_finished", self, "_on_Animation_finished")

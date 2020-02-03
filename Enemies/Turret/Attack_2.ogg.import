@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Attack_2.ogg-70face98b12e3d70b99d9bf70e9bd336.oggstr"
+
+[deps]
+
+source_file="res://Enemies/Turret/Attack_2.ogg"
+dest_files=[ "res://.import/Attack_2.ogg-70face98b12e3d70b99d9bf70e9bd336.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -25,6 +25,8 @@ func _physics_process(delta):
   position += velocity * delta
 
 func _process(_delta):
+  visible = true
+
   if velocity.length_squared() > 0:
     sprite.rotation = velocity.angle() + PI
     hitbox.rotation = velocity.angle() + PI

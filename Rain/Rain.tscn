@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Rain/Rain.png" type="Texture" id=1]
+[ext_resource path="res://Explosion.gd" type="Script" id=2]
+[ext_resource path="res://Rain/StreakyBoi.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Blah"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Streak:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -2000 ), Vector2( 0, -50 ) ]
+}
+
+[node name="Rain" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.266667 )
+texture = ExtResource( 1 )
+hframes = 5
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+autoplay = "Blah"
+anims/Blah = SubResource( 1 )
+
+[node name="Streak" type="Sprite" parent="."]
+position = Vector2( 0, -50 )
+texture = ExtResource( 3 )

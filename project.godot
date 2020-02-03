@@ -25,6 +25,7 @@ EventBus="*res://Autoload/EventBus.gd"
 Overlay="*res://Autoload/Overlay.tscn"
 MusicPlayer="*res://Autoload/MusicPlayer.tscn"
 Game="*res://Autoload/Game.gd"
+Util="*res://Autoload/Util.gd"
 
 [display]
 

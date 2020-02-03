@@ -25,7 +25,7 @@ func _process(delta):
   if Input.is_action_pressed("shoot"):
     parent.shooting = true
     if shoot_time <= 0:
-      EventBus.emit_signal("blood_paid", 3.0)
+      EventBus.emit_signal("blood_paid", 2.0)
       audio.stream = streams[randi() % streams.size()]
       audio.play()
       spawn_bullet()
@@ -35,8 +35,8 @@ func _process(delta):
 
 func spawn_bullet():
   var bullet = bullet_scene.instance()
-  Game.scene.bodies.call_deferred("add_child", bullet)
-  bullet.global_position = global_position
+  bullet.global_position = global_position + Vector2(0, 50)
   bullet.velocity = (parent.aim_direction.normalized() +\
       Vector2(rand_range(0.0, 0.1), rand_range(0, 0.1))) *\
       shoot_velocity * rand_range(0.9, 1)
+  Game.scene.bodies.call_deferred("add_child", bullet)

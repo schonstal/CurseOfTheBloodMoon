@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hit.ogg-0a86f16598ae919b5e95cc830d262ced.oggstr"
+
+[deps]
+
+source_file="res://Enemies/Turret/Hit.ogg"
+dest_files=[ "res://.import/Hit.ogg-0a86f16598ae919b5e95cc830d262ced.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -27,15 +27,16 @@ tracks/0/keys = {
 extents = Vector2( 18.9263, 5.37228 )
 
 [node name="Bullet" type="Area2D"]
+visible = false
 collision_layer = 4
 collision_mask = 18
 script = ExtResource( 2 )
 explosion_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -50 )
 texture = ExtResource( 1 )
 hframes = 4
-frame = 2
 script = ExtResource( 4 )
 z_offset = 50
 hitbox = NodePath("../CollisionShape2D")
@@ -45,5 +46,7 @@ autoplay = "Idle"
 anims/Idle = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -50 )
 shape = SubResource( 2 )
 script = ExtResource( 5 )
+offset = 0

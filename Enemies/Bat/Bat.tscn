@@ -1,10 +1,39 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Enemies/Bat/Bat.png" type="Texture" id=1]
 [ext_resource path="res://ReflectedSprite.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://Enemies/Bat/Brian.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Bat/HitBox.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Attack"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -40 ), Vector2( 0, -31 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
@@ -38,22 +67,28 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 13.9319, 8.04961 )
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 155.337
+
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16.4682, 11.146 )
 
 [node name="Bat" type="KinematicBody2D"]
 collision_layer = 2
-collision_mask = 2
+collision_mask = 18
 script = ExtResource( 3 )
+max_speed = Vector2( 10000, 10000 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -40 )
 texture = ExtResource( 1 )
-hframes = 6
+hframes = 12
+frame = 6
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Idle"
+anims/Attack = SubResource( 5 )
 anims/Idle = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -61,6 +96,18 @@ shape = SubResource( 2 )
 
 [node name="Brian" type="Node2D" parent="."]
 script = ExtResource( 4 )
+attack_speed = 1250
+
+[node name="SonarTimer" type="Timer" parent="Brian"]
+wait_time = 0.25
+autostart = true
+
+[node name="DetectBox" type="Area2D" parent="Brian"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brian/DetectBox"]
+position = Vector2( 0.380157, -4.18166 )
+shape = SubResource( 4 )
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 8

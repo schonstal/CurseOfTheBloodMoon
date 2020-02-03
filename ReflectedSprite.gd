@@ -19,9 +19,12 @@ func _process(delta):
 
   reflection.region_rect = region_rect
   reflection.region_enabled = region_enabled
-  reflection.global_position.y = global_position.y - position.y + z_offset
-  if hitbox != null:
-    reflection.global_position = reflection.global_position
+
+  if z_offset:
+    reflection.global_position = global_position + Vector2(0, z_offset)
+  else:
+    reflection.global_position = global_position + Vector2(0, -position.y)
+
   reflection.frame = frame
   reflection.offset = offset
   reflection.modulate = Color(1, 1, 1, 0.2)
