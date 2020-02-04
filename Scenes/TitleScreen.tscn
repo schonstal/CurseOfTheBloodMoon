@@ -89,7 +89,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-margin_right = 1352.0
+margin_right = 1349.0
 margin_bottom = 880.0
 texture = ExtResource( 2 )
 __meta__ = {
@@ -98,7 +98,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_top = 884.0
-margin_right = 1352.0
+margin_right = 1349.0
 margin_bottom = 1049.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.733333, 0.145098, 0.192157, 1 )
