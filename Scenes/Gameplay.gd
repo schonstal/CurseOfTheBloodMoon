@@ -5,6 +5,7 @@ var player:Node
 var sound:Node
 var bodies:Node
 var game_over_layer:Node
+var rain:Node
 
 onready var is_game_over = false
 
@@ -21,6 +22,7 @@ func _enter_tree():
   bodies = $Bodies
   sound = $Sound
   game_over_layer = $GameOverLayer
+  rain = $Rain
 
   Game.initialize()
 
