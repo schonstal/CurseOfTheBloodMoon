@@ -3,12 +3,12 @@
 [ext_resource path="res://Player/RunSound.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
 [ext_resource path="res://Player/Player.gd" type="Script" id=3]
-[ext_resource path="res://ReflectedSprite.gd" type="Script" id=4]
+[ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=4]
 [ext_resource path="res://Player/Skull/Skulls.png" type="Texture" id=5]
 [ext_resource path="res://Player/Weapon.gd" type="Script" id=6]
 [ext_resource path="res://Weapons/MachineGun/MachineGun.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Util/Screen.gd" type="Script" id=8]
-[ext_resource path="res://Player/RainSpawn.gd" type="Script" id=9]
+[ext_resource path="res://Effects/RainSpawn.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.9267, 17.1509 )

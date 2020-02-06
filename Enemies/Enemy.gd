@@ -62,7 +62,7 @@ func hurt(damage):
     return
 
   flash()
-  if stun_time >= 0:
+  if stun_time > 0:
     stun()
 
   health -= damage

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/vignette-white.png-cf6d10737feff521606adbd0078f3ea6.stex"
+path="res://.import/wider-vignette.png-8aaec2e401587b6460226be185d53896.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Effects/vignette-white.png"
-dest_files=[ "res://.import/vignette-white.png-cf6d10737feff521606adbd0078f3ea6.stex" ]
+source_file="res://Effects/wider-vignette.png"
+dest_files=[ "res://.import/wider-vignette.png-8aaec2e401587b6460226be185d53896.stex" ]
 
 [params]
 

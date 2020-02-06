@@ -4,10 +4,12 @@ export var speed = 1000
 
 onready var parent = $'..'
 onready var detect_box = $DetectBox
+onready var sight = $Sight
 onready var animation = $'../Sprite/AnimationPlayer'
 onready var player = Game.scene.player
 
 var attacking = false
+var saw_player = false
 
 var facing = LEFT setget set_facing,get_facing
 
@@ -16,15 +18,19 @@ const LEFT = 1
 
 func _ready():
   animation.connect("animation_finished", self, "_on_Animation_finished")
+  sight.connect("body_entered", self, "_on_Sight_body_entered")
 
 func _process(delta):
-  if Game.scene != null && player != null && is_instance_valid(player) && !attacking:
+  if Game.scene == null || player == null:
+    return
+
+  if is_instance_valid(player) && !attacking:
     if detect_box.overlaps_body(player):
       attacking = true
       animation.play("Attack")
       parent.acceleration = Vector2.ZERO
       parent.velocity = Vector2.ZERO
-    else:
+    elif saw_player:
       animation.play("Run")
       var direction = Game.scene.player.global_position - global_position
       parent.acceleration = speed * direction.normalized()
@@ -32,6 +38,8 @@ func _process(delta):
         self.facing = LEFT
       else:
         self.facing = RIGHT
+    else:
+      animation.play("Idle")
 
 func set_facing(value):
   if value != RIGHT:
@@ -46,3 +54,6 @@ func get_facing():
 func _on_Animation_finished(name):
   if name == "Attack":
     attacking = false
+
+func _on_Sight_body_entered(body):
+  saw_player = true

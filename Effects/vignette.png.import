@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/vignette.png-0e79ab4bd6c27b6869dd24f62d538d62.stex"
+path="res://.import/vignette.png-0c3bf2bad9b583a188d4411097b44899.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Effects/vignette.png"
-dest_files=[ "res://.import/vignette.png-0e79ab4bd6c27b6869dd24f62d538d62.stex" ]
+source_file="res://Effects/vignette.png"
+dest_files=[ "res://.import/vignette.png-0c3bf2bad9b583a188d4411097b44899.stex" ]
 
 [params]
 

@@ -5,9 +5,9 @@
 [ext_resource path="res://Arena/Wall/VerticalWall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/HUD/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Arena/Wall/Wall.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI/Effects/vignette.png" type="Texture" id=6]
+[ext_resource path="res://Effects/vignette.png" type="Texture" id=6]
 [ext_resource path="res://Util/SoundManager.gd" type="Script" id=7]
-[ext_resource path="res://UI/Effects/Vignette.gd" type="Script" id=8]
+[ext_resource path="res://Effects/Vignette.gd" type="Script" id=8]
 [ext_resource path="res://Rain/RainSort.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Spawn.gd" type="Script" id=10]
 [ext_resource path="res://Enemies/Doggo/Doggo.tscn" type="PackedScene" id=11]
@@ -37,6 +37,7 @@ wait_time = 0.5
 wait_time = 3.0
 
 [node name="Doggo" parent="Bodies" instance=ExtResource( 11 )]
+position = Vector2( 773.392, 419.649 )
 
 [node name="Wall4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1130, 0 )
