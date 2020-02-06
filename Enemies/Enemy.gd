@@ -84,7 +84,8 @@ func die():
 func explode():
   var explosion = explosion_scene.instance()
   explosion.global_position = global_position
-  explosion.rotation = rotation
+  explosion.global_rotation = global_rotation
+  explosion.scale = scale
   Game.scene.bodies.add_child(explosion)
 
 func flash():
