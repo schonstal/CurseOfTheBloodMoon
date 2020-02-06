@@ -10,6 +10,7 @@ onready var animation = $'../Sprite/AnimationPlayer'
 onready var player = Game.scene.player
 
 var attacking = false
+var spotted = false
 
 var facing = LEFT setget set_facing,get_facing
 
@@ -23,6 +24,9 @@ func _ready():
 func _process(delta):
   if Game.scene == null || player == null:
     return
+
+  if !spotted && parent.health < parent.max_health:
+    spot()
 
   if is_instance_valid(player) && !attacking && has_seen_player:
     if detect_box.overlaps_body(player):
@@ -54,4 +58,11 @@ func _on_Animation_finished(name):
     attacking = false
 
 func _on_Sight_body_entered(body):
+  spot()
+
+func spot():
+  if spotted:
+    return
+
+  spotted = true
   animation.play("Notice")
