@@ -363,7 +363,6 @@ shape = SubResource( 1 )
 position = Vector2( 1, 0 )
 
 [node name="Weapon" type="Node2D" parent="YSort"]
-position = Vector2( 114.88, 0.438446 )
 script = ExtResource( 6 )
 distance = 70.0
 

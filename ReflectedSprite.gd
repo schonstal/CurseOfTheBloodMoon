@@ -1,21 +1,23 @@
 extends Sprite
 
 export var z_offset = 0
-export(NodePath) var hitbox
 
 var copy = false
 var reflection:Node
+var flip = true
 
 func _ready():
   if !copy:
     reflection = self.duplicate()
     reflection.copy = true
     call_deferred("add_child", reflection)
-    reflection.flip_v = true
+    reflection.flip_v = flip
 
 func _process(delta):
   if copy:
     return
+
+  reflection.flip_v = flip
 
   reflection.region_rect = region_rect
   reflection.region_enabled = region_enabled

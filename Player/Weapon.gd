@@ -29,10 +29,6 @@ func aim():
   direction.x = Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left")
   direction.y = Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
 
-  if Input.is_action_just_pressed("melee") && attack_time <= 0:
-    attack_time = attack_rate
-    spawn_sword()
-
   if direction.length() > 0.4:
     aim_direction = direction.normalized()
 
@@ -41,6 +37,10 @@ func aim():
   var angle_rad = angle + PI + PI / 8
   var angle_ratio = angle_rad / (TAU + PI / 8)
   var anim_index = angle_ratio * positions.size()
+
+  if Input.is_action_just_pressed("melee") && attack_time <= 0:
+    attack_time = attack_rate
+    spawn_sword()
 
   facing = positions[int(anim_index)]
 
@@ -53,4 +53,4 @@ func spawn_sword():
   var sword = sword_scene.instance()
   Game.scene.bodies.call_deferred("add_child", sword)
   sword.rotation = aim_direction.angle()
-  sword.global_position = global_position - Vector2(0, 50)
+  sword.global_position = global_position
