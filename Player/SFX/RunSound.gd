@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-var bullet_scene = preload("res://Weapons/MachineGun/Bullet.tscn")
+var bullet_scene = preload("res://Player/Weapon/MachineGun/Bullet.tscn")
 
 var streams = [
   preload("res://Player/SFX/Step_1.ogg"),

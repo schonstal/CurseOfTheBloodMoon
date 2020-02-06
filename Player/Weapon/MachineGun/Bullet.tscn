@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Player/Weapon/MachineGun/OffsetHitbox.gd" type="Script" id=1]
+[ext_resource path="res://Projectiles/Projectile.gd" type="Script" id=2]
+[ext_resource path="res://Player/Weapon/MachineGun/Bullet.png" type="Texture" id=3]
+[ext_resource path="res://Player/Weapon/MachineGun/BulletExplosion.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.9263, 5.37228 )
+
+[node name="Bullet" type="Area2D"]
+visible = false
+collision_layer = 4
+collision_mask = 18
+script = ExtResource( 2 )
+explosion_scene = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -50 )
+texture = ExtResource( 3 )
+hframes = 4
+script = ExtResource( 5 )
+z_offset = 50
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+autoplay = "Idle"
+anims/Idle = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -50 )
+shape = SubResource( 2 )
+script = ExtResource( 1 )
+offset = 0
