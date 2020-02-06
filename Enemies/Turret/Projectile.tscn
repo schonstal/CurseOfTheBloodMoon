@@ -4,7 +4,8 @@
 [ext_resource path="res://Projectiles/Projectile.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Turret/BloodBallImpact/BloodBallExplosion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=4]
-[ext_resource path="res://Weapons/MachineGun/OffsetHitbox.gd" type="Script" id=5]
+[ext_resource path="res://Player/Weapon/MachineGun/OffsetHitbox.gd" type="Script" id=5]
+
 
 
 [sub_resource type="Animation" id=1]
