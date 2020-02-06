@@ -1,5 +1,7 @@
 extends Node2D
 
+export var play_music = true
+
 var camera:Node
 var player:Node
 var sound:Node
@@ -28,7 +30,12 @@ func _enter_tree():
 
 func _ready():
   camera = player.camera
-  MusicPlayer.play_file("res://Music/gameplay.ogg")
+
+  if play_music:
+    MusicPlayer.play_file("res://Music/gameplay.ogg")
+  else:
+    MusicPlayer.stop()
+
   EventBus.connect("shake_camera", self, "shake")
   EventBus.connect("game_over", self, "game_over")
   EventBus.connect("reset_combo", self, "reset_combo")
