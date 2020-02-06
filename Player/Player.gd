@@ -24,8 +24,8 @@ onready var iframe_timer = $IframeTimer
 onready var camera = $Camera2D
 
 export(Resource) var explosion_scene = preload("res://Player/PlayerExplosion.tscn")
-export(Resource) var hurt_sound = preload("res://Player/Hurt.ogg")
-export(Resource) var die_sound = preload("res://Player/Death.ogg")
+export(Resource) var hurt_sound = preload("res://Player/SFX/Hurt.ogg")
+export(Resource) var die_sound = preload("res://Player/SFX/Death.ogg")
 
 func _ready():
   alive = true

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Skull_Shot_3.ogg-0792f22d745229ae851336e12b8bfe9c.oggstr"
+
+[deps]
+
+source_file="res://Player/SFX/Skull_Shot_3.ogg"
+dest_files=[ "res://.import/Skull_Shot_3.ogg-0792f22d745229ae851336e12b8bfe9c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
