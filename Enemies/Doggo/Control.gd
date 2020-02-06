@@ -1,6 +1,7 @@
 extends Node2D
 
 export var speed = 1000
+export var has_seen_player = false
 
 onready var parent = $'..'
 onready var detect_box = $DetectBox
@@ -9,7 +10,6 @@ onready var animation = $'../Sprite/AnimationPlayer'
 onready var player = Game.scene.player
 
 var attacking = false
-var saw_player = false
 
 var facing = LEFT setget set_facing,get_facing
 
@@ -24,13 +24,13 @@ func _process(delta):
   if Game.scene == null || player == null:
     return
 
-  if is_instance_valid(player) && !attacking:
+  if is_instance_valid(player) && !attacking && has_seen_player:
     if detect_box.overlaps_body(player):
       attacking = true
       animation.play("Attack")
       parent.acceleration = Vector2.ZERO
       parent.velocity = Vector2.ZERO
-    elif saw_player:
+    else:
       animation.play("Run")
       var direction = Game.scene.player.global_position - global_position
       parent.acceleration = speed * direction.normalized()
@@ -38,8 +38,6 @@ func _process(delta):
         self.facing = LEFT
       else:
         self.facing = RIGHT
-    else:
-      animation.play("Idle")
 
 func set_facing(value):
   if value != RIGHT:
@@ -56,4 +54,4 @@ func _on_Animation_finished(name):
     attacking = false
 
 func _on_Sight_body_entered(body):
-  saw_player = true
+  animation.play("Notice")

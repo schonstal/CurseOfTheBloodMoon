@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Enemies/Doggo/Doggo.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/Doggo/FleshDog/FleshDog.png" type="Texture" id=1]
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://Enemies/Doggo/DoggoExplosion.tscn" type="PackedScene" id=4]
@@ -165,10 +165,23 @@ tracks/11/keys = {
 "method": "spawn_rain"
 } ]
 }
+tracks/12/type = "value"
+tracks/12/path = NodePath("AnimationPlayer:playback_speed")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "Idle"
-length = 0.3
+length = 0.6
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -176,10 +189,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0 ]
+"values": [ 21, 22, 23, 24, 23, 22 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("../HitBox/CollisionShape2D:disabled")
@@ -227,7 +240,107 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -14.353, -67.136 ) ]
+"values": [ Vector2( 26, -24 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:z_offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 50 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimationPlayer:playback_speed")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.8 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Control:has_seen_player")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Notice"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15, 16, 17, 18, 19, 20 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../HitBox/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../CollisionShape2D:shape:extents")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 52.5566, 11.2888 ), Vector2( 35.9825, 22.9783 ), Vector2( 52.557, 11.289 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../CollisionShape2D:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 50.9829, -4.18166 ), Vector2( 63.1689, -17.0276 ), Vector2( 50.983, -4.182 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 22, -67.136 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath(".:z_offset")
@@ -240,6 +353,30 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 140 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimationPlayer:playback_speed")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Control:has_seen_player")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -353,9 +490,21 @@ tracks/7/keys = {
 "method": "spawn_rain"
 } ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("AnimationPlayer:playback_speed")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 52.5566, 11.2888 )
+extents = Vector2( 52.557, 11.289 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 124.317, 16.5678 )
@@ -364,7 +513,7 @@ extents = Vector2( 124.317, 16.5678 )
 radius = 586.043
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 53.8606, 32.8803 )
+extents = Vector2( 60.7015, 32.8803 )
 
 [node name="Doggo" type="KinematicBody2D"]
 collision_layer = 2
@@ -377,25 +526,28 @@ explosion_scene = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( -14.353, -67.136 )
-vframes = 3
+offset = Vector2( 22, -67.136 )
+vframes = 5
 hframes = 6
-frame = 1
+frame = 20
 script = ExtResource( 2 )
 z_offset = 140
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+autoplay = "Idle"
 anims/Attack = SubResource( 1 )
 anims/Idle = SubResource( 2 )
+anims/Notice = SubResource( 8 )
 anims/Run = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 50.9829, -4.18166 )
+position = Vector2( 50.983, -4.182 )
 shape = SubResource( 4 )
 
 [node name="Control" type="Node2D" parent="."]
 script = ExtResource( 6 )
 speed = 10000
+has_seen_player = true
 
 [node name="DetectBox" type="Area2D" parent="Control"]
 collision_layer = 8
@@ -406,6 +558,7 @@ position = Vector2( -26.7996, -9.92388 )
 shape = SubResource( 5 )
 
 [node name="Sight" type="Area2D" parent="Control"]
+visible = false
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Sight"]
@@ -419,12 +572,12 @@ script = ExtResource( 5 )
 damage = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( -87.2655, 7.91996 )
+position = Vector2( -104.492, 7.53714 )
 shape = SubResource( 7 )
 disabled = true
 
 [node name="RainSpawn" parent="." instance=ExtResource( 7 )]
-position = Vector2( 62.9916, -8.55984 )
+position = Vector2( 63.9278, 4.23426 )
 
 [node name="RainSpawn2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 100.852, -7.02345 )
+position = Vector2( 23.7759, 2.02602 )
