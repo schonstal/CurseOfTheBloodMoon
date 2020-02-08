@@ -18,6 +18,7 @@ func _process(delta):
     return
 
   reflection.flip_v = flip
+  reflection.flip_h = flip_h
 
   reflection.region_rect = region_rect
   reflection.region_enabled = region_enabled
