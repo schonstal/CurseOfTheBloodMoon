@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Enemies/Leech/Ooze/Ooze.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/Leech/Ooze/OozeSprite.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Bat/HitBox.gd" type="Script" id=3]
+[ext_resource path="res://Enemies/Leech/Ooze/Bubble/Bubble.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Spawn"
@@ -47,6 +48,23 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33.4218, 8.42596 )
 
+[sub_resource type="CanvasItemMaterial" id=3]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 20, 8, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.25
+scale_random = 0.75
+anim_speed = 1.0
+
 [node name="Ooze" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -69,3 +87,13 @@ damage = 100.0
 position = Vector2( 0, -0.161 )
 shape = SubResource( 1 )
 disabled = true
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 3 )
+position = Vector2( -0.0005, -6.23393 )
+emitting = false
+amount = 4
+one_shot = true
+randomness = 1.0
+process_material = SubResource( 4 )
+texture = ExtResource( 4 )

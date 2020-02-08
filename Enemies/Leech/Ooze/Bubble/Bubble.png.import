@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bubble0001_7x1.png-32a98be682a0a46e8dbede2ae91de4bf.stex"
+path="res://.import/Bubble.png-1d9b93a53358898632e97e11b237d471.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Leech/Ooze/Bubble/Bubble0001_7x1.png"
-dest_files=[ "res://.import/Bubble0001_7x1.png-32a98be682a0a46e8dbede2ae91de4bf.stex" ]
+source_file="res://Enemies/Leech/Ooze/Bubble/Bubble.png"
+dest_files=[ "res://.import/Bubble.png-1d9b93a53358898632e97e11b237d471.stex" ]
 
 [params]
 

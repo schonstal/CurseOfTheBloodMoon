@@ -1,6 +1,7 @@
 extends Sprite
 
 onready var flash_timer = $FlashTimer
+onready var parent = $'..'
 
 func _ready():
   frame = randi() % 2
@@ -10,6 +11,6 @@ func _process(delta):
   var int_time = int(time / 100)
 
   if int_time % 2 == 0:
-    modulate = Color(1, 1, 1, 1)
+    parent.modulate = Color(1, 1, 1, 1)
   else:
-    modulate = Color(1.5, 1.5, 1.5, 1)
+    parent.modulate = Color(1.5, 1.5, 1.5, 1)
