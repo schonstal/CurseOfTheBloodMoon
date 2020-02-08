@@ -1,9 +1,91 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/GameOver/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://UI/Fonts/Pirata_One-128.tres" type="DynamicFont" id=2]
 [ext_resource path="res://UI/Fonts/Pirata.tres" type="DynamicFont" id=3]
 [ext_resource path="res://UI/GameOver/Score.gd" type="Script" id=4]
+[ext_resource path="res://UI/GameOver/YourNightHasEnded.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Beat"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.145098, 0.192157, 1 ), Color( 1, 1, 1, 1 ), Color( 0.733333, 0.145098, 0.192157, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Pulse"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_colors/font_color")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.733333, 0.145098, 0.192157, 1 ), Color( 1, 1, 1, 1 ), Color( 0.733333, 0.145098, 0.192157, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -1.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
+}
 
 [node name="GameOver" type="Control"]
 anchor_right = 1.0
@@ -37,21 +119,17 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Label" type="Label" parent="Menu/CenterRow/Buttons"]
-margin_top = 324.0
+[node name="TextureRect" type="TextureRect" parent="Menu/CenterRow/Buttons"]
+margin_top = 347.0
 margin_right = 1920.0
-margin_bottom = 489.0
-custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.803922, 0.109804, 0.109804, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_offset_y = 5
-text = "Your Night Has Ended"
-align = 1
+margin_bottom = 466.0
+texture = ExtResource( 5 )
+stretch_mode = 4
 
 [node name="Score" type="Label" parent="Menu/CenterRow/Buttons"]
-margin_top = 493.0
+margin_top = 470.0
 margin_right = 1920.0
-margin_bottom = 587.0
+margin_bottom = 564.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -61,12 +139,19 @@ align = 1
 script = ExtResource( 4 )
 
 [node name="TryAgain" type="Label" parent="Menu/CenterRow/Buttons"]
-margin_top = 591.0
+margin_top = 568.0
 margin_right = 1920.0
-margin_bottom = 756.0
+margin_bottom = 733.0
+rect_pivot_offset = Vector2( 960, 80 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_y = 5
 text = "Press Attack to Try Again"
 align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Menu/CenterRow/Buttons/TryAgain"]
+autoplay = "Pulse"
+playback_speed = 0.1
+anims/Beat = SubResource( 2 )
+anims/Pulse = SubResource( 1 )
