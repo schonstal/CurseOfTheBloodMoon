@@ -101,7 +101,6 @@ margin_left = 135.079
 margin_top = 24.0417
 margin_right = 429.079
 margin_bottom = 189.042
-rect_scale = Vector2( 1.1, 1.1 )
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "75000"
@@ -120,6 +119,7 @@ anims/HighScore = SubResource( 4 )
 anims/Idle = SubResource( 5 )
 
 [node name="BloodMoon" type="Sprite" parent="."]
+visible = false
 position = Vector2( 39, 41 )
 texture = ExtResource( 5 )
 hframes = 7
