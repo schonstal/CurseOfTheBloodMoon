@@ -1,20 +1,30 @@
 extends AudioStreamPlayer
 
-var bus_effect:AudioEffectLowPassFilter
+var low_pass:AudioEffectLowPassFilter
+var spectrum_analyzer:AudioEffectSpectrumAnalyzer
+var spectrum:AudioEffectSpectrumAnalyzerInstance
 var bus_index = 0
-var effect_index = 0
+var low_pass_index = 0
+var spectrum_analyzer_index = 1
 var music_volume = 0
 var current_file = ""
+
+var bass_magnitude setget ,get_bass_magnitude
 
 onready var fade_tween = $FadeTween
 
 func _ready():
   bus_index = AudioServer.get_bus_index("Music")
 
-  bus_effect = AudioEffectLowPassFilter.new()
-  bus_effect.cutoff_hz = 22000
+  low_pass = AudioEffectLowPassFilter.new()
+  low_pass.cutoff_hz = 22000
 
-  AudioServer.add_bus_effect(bus_index, bus_effect, effect_index)
+  spectrum_analyzer = AudioEffectSpectrumAnalyzer.new()
+
+  AudioServer.add_bus_effect(bus_index, low_pass, low_pass_index)
+  AudioServer.add_bus_effect(bus_index, spectrum_analyzer, spectrum_analyzer_index)
+
+  spectrum = AudioServer.get_bus_effect_instance(bus_index, spectrum_analyzer_index)
 
 func _process(_delta):
   AudioServer.set_bus_volume_db(bus_index, music_volume)
@@ -29,10 +39,10 @@ func play_file(audio_file):
   self.play()
 
 func disable_filter():
-  bus_effect.cutoff_hz = 22000
+  low_pass.cutoff_hz = 22000
 
 func enable_filter():
-  bus_effect.cutoff_hz = 200
+  low_pass.cutoff_hz = 200
 
 func fade(start_volume_db, end_volume_db, duration):
   fade_tween.interpolate_property(
@@ -45,6 +55,9 @@ func fade(start_volume_db, end_volume_db, duration):
       Tween.EASE_IN)
 
   fade_tween.start()
+
+func get_bass_magnitude():
+  return spectrum.get_magnitude_for_frequency_range(40, 100).length()
 
 func _on_boss_defeated():
   self.stop()#  pass
