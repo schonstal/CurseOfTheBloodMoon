@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ooze1_3x1.png-13e267a50cf518725b1427b6a3a39cba.stex"
+path="res://.import/Ooze.png-afb5e209b44b398e93451cf6e2a2f759.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/Leech/Ooze/Ooze1_3x1.png"
-dest_files=[ "res://.import/Ooze1_3x1.png-13e267a50cf518725b1427b6a3a39cba.stex" ]
+source_file="res://Enemies/Leech/Ooze/Ooze.png"
+dest_files=[ "res://.import/Ooze.png-afb5e209b44b398e93451cf6e2a2f759.stex" ]
 
 [params]
 

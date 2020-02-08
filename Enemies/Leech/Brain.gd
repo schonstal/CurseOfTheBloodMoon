@@ -6,6 +6,7 @@ export var move_direction = Vector2(0, 0)
 
 onready var parent = $'..'
 onready var animation = $'../Sprite/AnimationPlayer'
+onready var ooze_spawn = $OozeSpawn
 
 var directions = ["North", "East", "South", "West"]
 var direction = "North"
@@ -17,14 +18,16 @@ func _ready():
 func move():
   parent.velocity = move_direction * speed
   parent.acceleration = move_direction * -speed * 2
-  print("spawnin a blood")
+  if direction == "North" || direction == "South":
+    ooze_spawn.spawn_ooze(true)
+  else:
+    ooze_spawn.spawn_ooze(false)
 
 func move_complete():
   parent.velocity = Vector2.ZERO
   parent.acceleration = Vector2.ZERO
 
   if randf() < change_direction_chance:
-    print("changing")
     change_direction()
 
   start_moving()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemies/Leech/Brain.gd" type="Script" id=1]
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://Enemies/Leech/Leech.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/Leech/LeechExplosion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemies/Leech/Ooze/OozeSpawn.gd" type="Script" id=6]
 
 [sub_resource type="Animation" id=6]
 resource_name = "WalkEast"
@@ -427,7 +428,7 @@ tracks/7/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 20.8737, 9.06066 )
+extents = Vector2( 20.8737, 9.71057 )
 
 [node name="Leech" type="KinematicBody2D"]
 collision_layer = 2
@@ -443,7 +444,7 @@ explosion_scene = ExtResource( 5 )
 position = Vector2( 1.51962, -15.469 )
 texture = ExtResource( 4 )
 hframes = 18
-frame = 11
+frame = 6
 script = ExtResource( 2 )
 z_offset = 24
 
@@ -454,10 +455,13 @@ anims/WalkSouth = SubResource( 4 )
 anims/WalkWest = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.651245, -10.2032 )
+position = Vector2( 0.434628, -11.4308 )
 shape = SubResource( 3 )
 
 [node name="Brain" type="Node2D" parent="."]
 script = ExtResource( 1 )
 speed = 200
 move_direction = Vector2( 0, 1 )
+
+[node name="OozeSpawn" type="Node2D" parent="Brain"]
+script = ExtResource( 6 )
