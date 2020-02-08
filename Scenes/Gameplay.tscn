@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Gameplay.gd" type="Script" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Effects/Vignette/Vignette.gd" type="Script" id=8]
 [ext_resource path="res://Rain/RainSort.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Spawn.gd" type="Script" id=10]
-[ext_resource path="res://Enemies/Doggo/Doggo.tscn" type="PackedScene" id=11]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
@@ -32,12 +31,15 @@ width_tiles = 60
 
 [node name="BatSpawnTimer" type="Timer" parent="Bodies"]
 wait_time = 0.5
+autostart = true
 
 [node name="TurretSpawnTimer" type="Timer" parent="Bodies"]
 wait_time = 3.0
+autostart = true
 
-[node name="Doggo" parent="Bodies" instance=ExtResource( 11 )]
-position = Vector2( 773.392, 419.649 )
+[node name="DogSpawnTimer" type="Timer" parent="Bodies"]
+wait_time = 30.0
+autostart = true
 
 [node name="Wall4" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1130, 0 )
@@ -62,6 +64,8 @@ modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 6 )
 centered = false
 script = ExtResource( 8 )
+
+[node name="ScoreText" type="Node2D" parent="Effects"]
 
 [node name="GameOverLayer" type="CanvasLayer" parent="."]
 layer = 10
