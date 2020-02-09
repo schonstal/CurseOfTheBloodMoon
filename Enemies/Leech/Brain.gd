@@ -9,16 +9,16 @@ onready var animation = $'../Sprite/AnimationPlayer'
 onready var ooze_spawn = $OozeSpawn
 
 var directions = ["North", "East", "South", "West"]
-var direction = "North"
+var direction = 0
 
 func _ready():
-  change_direction()
+  direction = randi() % directions.size()
   start_moving()
 
 func move():
   parent.velocity = move_direction * speed
   parent.acceleration = move_direction * -speed * 2
-  if direction == "North" || direction == "South":
+  if direction == 0 || direction == 2:
     ooze_spawn.spawn_ooze(true)
   else:
     ooze_spawn.spawn_ooze(false)
@@ -33,7 +33,16 @@ func move_complete():
   start_moving()
 
 func change_direction():
-  direction = directions[randi() % directions.size()]
+  if direction == 0 || direction == 2:
+    direction = random_choice(1, 3)
+  else:
+    direction = random_choice(0, 2)
 
 func start_moving():
-  animation.play("Walk%s" % direction)
+  animation.play("Walk%s" % directions[direction])
+
+func random_choice(a, b):
+  if randi() % 2 == 0:
+    return a
+  else:
+    return b
