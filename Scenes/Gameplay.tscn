@@ -32,12 +32,15 @@ width_tiles = 60
 
 [node name="BatSpawnTimer" type="Timer" parent="Bodies"]
 wait_time = 0.5
+autostart = true
 
 [node name="TurretSpawnTimer" type="Timer" parent="Bodies"]
 wait_time = 3.0
+autostart = true
 
 [node name="DogSpawnTimer" type="Timer" parent="Bodies"]
 wait_time = 30.0
+autostart = true
 
 [node name="Leech" parent="Bodies" instance=ExtResource( 11 )]
 position = Vector2( 706.293, 290.235 )

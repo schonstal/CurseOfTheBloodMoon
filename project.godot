@@ -26,6 +26,7 @@ Overlay="*res://Autoload/Overlay.tscn"
 MusicPlayer="*res://Autoload/MusicPlayer.tscn"
 Game="*res://Autoload/Game.gd"
 Util="*res://Autoload/Util.gd"
+Transition="*res://UI/Transition/Transition.tscn"
 
 [display]
 
