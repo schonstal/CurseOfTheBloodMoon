@@ -19,17 +19,24 @@ func _on_SonarTimer_timeout():
   wait = !wait
 
   if wait:
-    sonar_timer.wait_time = 0.25
     animation.play("Idle")
     parent.velocity = Vector2.ZERO
     var player = Game.scene.player
+    sonar_timer.start()
   elif Game.scene != null && player != null && is_instance_valid(player) && detect_box.overlaps_body(player):
-    sonar_timer.wait_time = 0.5
     animation.play("Attack")
-    var direction = Game.scene.player.global_position - global_position
-    parent.velocity = attack_speed * direction.normalized()
   else:
-    sonar_timer.wait_time = 0.25
     animation.play("Idle")
     var direction = Vector2(rand_range(-1, 1), rand_range(-1, 1))
     parent.velocity = speed * direction.normalized()
+    sonar_timer.start()
+
+func attack_player():
+  var direction = Game.scene.player.global_position - global_position
+  parent.velocity = attack_speed * direction.normalized()
+
+func stop_attacking():
+  parent.velocity = Vector2.ZERO
+
+func idle():
+  sonar_timer.start()
