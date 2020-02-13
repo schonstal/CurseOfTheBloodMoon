@@ -5,7 +5,7 @@
 [ext_resource path="res://UI/Fonts/Pirata_One-128.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/TitleScreen.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Flicker"
 length = 0.1
 loop = true
@@ -34,8 +34,7 @@ tracks/1/keys = {
 "values": [ 3.0 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "Pulse"
+[sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:custom_colors/font_color")
@@ -111,5 +110,5 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Label"]
 autoplay = "Pulse"
 playback_speed = 0.25
-anims/Flicker = SubResource( 2 )
-anims/Pulse = SubResource( 1 )
+anims/Flicker = SubResource( 1 )
+anims/Pulse = SubResource( 2 )
