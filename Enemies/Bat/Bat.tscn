@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemies/Bat/BrianBat.png" type="Texture" id=1]
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=2]
@@ -114,6 +114,96 @@ tracks/2/keys = {
 "update": 0,
 "values": [ 1.0 ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Stun"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 5.0, 0.0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../Brian")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "idle"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -3.42136, -60.148 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 13.9319, 8.04961 )
@@ -128,21 +218,24 @@ extents = Vector2( 16.4682, 11.146 )
 collision_layer = 2
 collision_mask = 18
 script = ExtResource( 3 )
+stun_time = 0.3
 max_speed = Vector2( 10000, 10000 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -40 )
+position = Vector2( -3.42136, -60.148 )
+rotation = 0.0872665
+scale = Vector2( 1.1, 1.2 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 13
-frame = 23
+frame = 12
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Idle"
-playback_speed = 1.25
 anims/Attack = SubResource( 1 )
 anims/Idle = SubResource( 2 )
+anims/Stun = SubResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )
@@ -160,7 +253,8 @@ autostart = true
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brian/DetectBox"]
-position = Vector2( 0.380157, -4.18166 )
+visible = false
+position = Vector2( 0.380157, -4.56182 )
 shape = SubResource( 4 )
 
 [node name="HitBox" type="Area2D" parent="."]

@@ -25,6 +25,7 @@ export(Resource) var hurt_sound = preload("res://Enemies/Enemy_Hit.ogg")
 export(Resource) var die_sound = preload("res://Enemies/Bat/Bat_Death.ogg")
 
 signal died
+signal hurt
 
 func _physics_process(delta):
   velocity.y += acceleration.y * delta
@@ -68,6 +69,8 @@ func hurt(damage):
   health -= damage
   if health <= 0:
     die()
+
+  emit_signal("hurt")
 
   Game.scene.sound.play(hurt_sound, "enemy_hurt")
 

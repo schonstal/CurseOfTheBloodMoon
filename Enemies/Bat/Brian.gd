@@ -5,6 +5,7 @@ export var attack_speed = 3000
 
 onready var player = Game.scene.player
 onready var parent = $'..'
+onready var sprite = $'../Sprite'
 onready var sonar_timer = $SonarTimer
 onready var detect_box = $DetectBox
 onready var animation = $'../Sprite/AnimationPlayer'
@@ -14,6 +15,14 @@ var wait = true
 func _ready():
   speed = speed * rand_range(0.5, 1.0)
   sonar_timer.connect("timeout", self, "_on_SonarTimer_timeout")
+  parent.connect("hurt", self, "_on_hurt")
+
+func _process(delta):
+  if parent.velocity.x > 0:
+    sprite.flip_h = true
+
+  if parent.velocity.x < 0:
+    sprite.flip_h = false
 
 func _on_SonarTimer_timeout():
   wait = !wait
@@ -39,4 +48,9 @@ func stop_attacking():
   parent.velocity = Vector2.ZERO
 
 func idle():
+  animation.play("Idle")
   sonar_timer.start()
+
+func _on_hurt():
+  sonar_timer.stop()
+  animation.play("Stun")
