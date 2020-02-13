@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Enemies/EnemySpawn/EnemySpawn.png" type="Texture" id=1]
 [ext_resource path="res://Enemies/EnemySpawn/Spawner.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/EnemySpawn/Spawn_Burst_2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Explode"
@@ -54,6 +55,8 @@ position = Vector2( 0, -50 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 8
+script = ExtResource( 4 )
+z_offset = 160
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Explode"
