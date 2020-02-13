@@ -23,7 +23,7 @@ func _process(delta):
   reflection.region_rect = region_rect
   reflection.region_enabled = region_enabled
 
-  if z_offset:
+  if z_offset != 0:
     reflection.global_position = global_position + Vector2(0, z_offset)
   else:
     reflection.global_position = global_position + Vector2(0, -position.y)
