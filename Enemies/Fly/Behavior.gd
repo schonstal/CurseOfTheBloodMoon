@@ -6,7 +6,8 @@ onready var sprite = $'../Sprite'
 
 func _process(delta):
   var direction = Game.scene.player.global_position - global_position
-  parent.velocity = speed * direction.normalized()
+  direction = direction.normalized()
+  parent.velocity = speed * direction
 
   if parent.velocity.x > 0:
     sprite.flip_h = true

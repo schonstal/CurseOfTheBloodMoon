@@ -37,6 +37,7 @@ collision_mask = 2
 script = ExtResource( 3 )
 max_health = 1
 points = 50
+max_speed = Vector2( 1000, 1000 )
 explosion_scene = ExtResource( 4 )
 hurt_sound = ExtResource( 5 )
 die_sound = ExtResource( 6 )
@@ -58,6 +59,7 @@ shape = SubResource( 3 )
 
 [node name="Behavior" type="Node2D" parent="."]
 script = ExtResource( 7 )
+speed = 350
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 8

@@ -34,15 +34,12 @@ width_tiles = 60
 
 [node name="BatSpawnTimer" type="Timer" parent="Bodies"]
 wait_time = 0.5
-autostart = true
 
 [node name="TurretSpawnTimer" type="Timer" parent="Bodies"]
 wait_time = 3.0
-autostart = true
 
 [node name="DogSpawnTimer" type="Timer" parent="Bodies"]
 wait_time = 30.0
-autostart = true
 
 [node name="Leech" parent="Bodies" instance=ExtResource( 11 )]
 position = Vector2( 706.293, 290.235 )
@@ -74,11 +71,8 @@ position = Vector2( 408.556, 140.3 )
 [node name="Fly9" parent="Bodies" instance=ExtResource( 13 )]
 position = Vector2( 328.442, -97.4586 )
 
-[node name="Fly10" parent="Bodies" instance=ExtResource( 13 )]
-position = Vector2( -255.615, 129.962 )
-
 [node name="Fly11" parent="Bodies" instance=ExtResource( 13 )]
-position = Vector2( -87.6343, 321.202 )
+position = Vector2( -95.3872, 365.136 )
 
 [node name="Fly12" parent="Bodies" instance=ExtResource( 13 )]
 position = Vector2( 331.027, 336.708 )
