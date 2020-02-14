@@ -215,7 +215,7 @@ extents = Vector2( 13.9319, 8.04961 )
 radius = 155.337
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 16.4682, 11.146 )
+extents = Vector2( 12.2862, 11.146 )
 
 [node name="Bat" type="KinematicBody2D"]
 collision_layer = 2
