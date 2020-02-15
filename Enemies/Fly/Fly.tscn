@@ -43,11 +43,11 @@ hurt_sound = ExtResource( 5 )
 die_sound = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -37 )
+position = Vector2( 0.380127, -35.0993 )
 texture = ExtResource( 1 )
 hframes = 4
 script = ExtResource( 2 )
-z_offset = 80
+z_offset = 60
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Idle"
