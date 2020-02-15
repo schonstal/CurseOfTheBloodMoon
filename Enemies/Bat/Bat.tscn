@@ -245,7 +245,7 @@ tracks/5/keys = {
 extents = Vector2( 13.9319, 8.04961 )
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 155.337
+radius = 244.978
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 12.2862, 11.146 )
@@ -287,7 +287,6 @@ autostart = true
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brian/DetectBox"]
-visible = false
 position = Vector2( 0.380157, -4.56182 )
 shape = SubResource( 4 )
 
