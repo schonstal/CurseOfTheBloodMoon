@@ -23,3 +23,6 @@ func _on_body_enter(body):
   if body.has_method("hurt"):
     EventBus.emit_signal("blood_paid", -100)
     body.hurt(damage)
+    # if body.health <= 0:
+    #   EventBus.emit_signal("shake_camera", 0.25, 60, 10)
+    #   Engine.time_scale = 0.5
