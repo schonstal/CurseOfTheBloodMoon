@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "HighScore"
 length = 0.2
 loop = true
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.733333, 0.145098, 0.192157, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Idle"
 length = 0.1
 tracks/0/type = "value"
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -115,8 +115,8 @@ anims/EarnedPoints = SubResource( 1 )
 [node name="HighScoreAnimation" type="AnimationPlayer" parent="Score"]
 autoplay = "Idle"
 playback_speed = 0.25
-anims/HighScore = SubResource( 4 )
-anims/Idle = SubResource( 5 )
+anims/HighScore = SubResource( 2 )
+anims/Idle = SubResource( 3 )
 
 [node name="BloodMoon" type="Sprite" parent="."]
 visible = false
@@ -128,5 +128,5 @@ script = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BloodMoon"]
 autoplay = "Idle"
-anims/BloodMoon = SubResource( 2 )
-anims/Idle = SubResource( 3 )
+anims/BloodMoon = SubResource( 4 )
+anims/Idle = SubResource( 5 )
