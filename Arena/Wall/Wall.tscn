@@ -5,7 +5,6 @@
 [ext_resource path="res://Arena/Wall/Wall.gd" type="Script" id=3]
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=4]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 29.4815 )
 
@@ -26,7 +25,7 @@ texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 63, 60 )
 script = ExtResource( 4 )
-z_offset = 101
+z_offset = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 40.9347 )
