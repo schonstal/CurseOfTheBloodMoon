@@ -15,3 +15,15 @@ func spawn_circle(options):
 func spawn_full_circle(options):
   for bullet in spawn_circle(options):
     pass
+
+func thousands_string(number):
+  var string = str(number)
+  var mod = string.length() % 3
+  var res = ""
+
+  for i in range(0, string.length()):
+    if i != 0 && i % 3 == mod:
+      res += ","
+    res += string[i]
+
+  return res
