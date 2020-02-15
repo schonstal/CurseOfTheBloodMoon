@@ -1,13 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemies/Bat/BrianBat.png" type="Texture" id=1]
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=2]
 [ext_resource path="res://Enemies/Enemy.gd" type="Script" id=3]
 [ext_resource path="res://Enemies/Bat/Brian.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/Bat/HitBox.gd" type="Script" id=5]
-
-[sub_resource type="CanvasItemMaterial" id=7]
-blend_mode = 1
 
 [sub_resource type="Animation" id=1]
 resource_name = "Attack"
@@ -261,7 +258,6 @@ stun_time = 0.3
 max_speed = Vector2( 10000, 10000 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 7 )
 position = Vector2( 0, -40 )
 texture = ExtResource( 1 )
 vframes = 2
