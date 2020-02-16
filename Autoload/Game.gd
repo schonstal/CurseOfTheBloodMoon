@@ -13,6 +13,7 @@ func _ready():
   randomize()
   Overlay.connect("fade_complete", self, "_on_Overlay_fade_complete")
   Transition.connect("transition_complete", self, "_on_Transition_complete")
+  Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 func reset():
   Game.change_scene("res://Scenes/Gameplay.tscn", false)
