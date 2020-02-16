@@ -15,8 +15,6 @@ var direction = Vector2(0, 0)
 var aim_direction = Vector2(1, 0)
 var facing = "E"
 var shooting = false
-var mouse_position_was = Vector2(0, 0)
-var joystick_control = true
 
 var sword_scene = preload("res://Player/Melee/Sword.tscn")
 
@@ -28,18 +26,16 @@ func aim():
   if !Game.scene.player.alive:
     return
 
-  direction.x = Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left")
-  direction.y = Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")
+  var mouse_position = get_viewport().get_mouse_position()
 
-  var mouse_position = Game.scene.get_global_mouse_position()
-
-  if direction.length() > 0.4:
-    joystick_control = true
-    aim_direction = direction.normalized()
-  elif !joystick_control || mouse_position_was != mouse_position:
-    joystick_control = false
-    aim_direction = (mouse_position + Vector2(0, 40) - Game.scene.player.global_position).normalized()
-    mouse_position_was = mouse_position
+  if Game.mouse_active:
+    aim_direction = (
+        Game.scene.get_global_mouse_position() +\
+        Vector2(0, 40) -\
+        Game.scene.player.global_position\
+        ).normalized()
+  elif Game.joy_aim_direction.length_squared() > 0:
+    aim_direction = Game.joy_aim_direction
 
   position = aim_direction * distance
   var angle = aim_direction.angle()

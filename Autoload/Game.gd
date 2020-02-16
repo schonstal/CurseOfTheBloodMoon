@@ -6,6 +6,15 @@ var scene:Node
 var high_score = 0
 var target_scene
 
+var mouse_active = false setget set_mouse_active, get_mouse_active
+var joy_aim_direction setget ,get_joy_aim_direction
+var dead_zone = 0.4
+
+var _aim = Vector2(0, 0)
+
+onready var dead_zone_squared = dead_zone * dead_zone
+onready var mouse_position_was = get_viewport().get_mouse_position()
+
 func initialize():
   scene = $'../World'
 
@@ -13,7 +22,22 @@ func _ready():
   randomize()
   Overlay.connect("fade_complete", self, "_on_Overlay_fade_complete")
   Transition.connect("transition_complete", self, "_on_Transition_complete")
-  Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+  self.mouse_active = false
+
+func _process(delta):
+  var mouse_position = get_viewport().get_mouse_position()
+
+  _aim = Vector2(
+      Input.get_action_strength("aim_right") - Input.get_action_strength("aim_left"),
+      Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")\
+      )
+
+  if mouse_position_was != mouse_position:
+    self.mouse_active = true
+  elif self.joy_aim_direction.length_squared() > 0:
+    self.mouse_active = false
+
+  mouse_position_was = mouse_position
 
 func reset():
   Game.change_scene("res://Scenes/Gameplay.tscn", false)
@@ -38,3 +62,19 @@ func _on_Transition_complete():
 
 func _on_Overlay_fade_complete():
   pass
+
+func set_mouse_active(value):
+  mouse_active = value
+  if mouse_active:
+    Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+  else:
+    Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
+func get_mouse_active():
+  return mouse_active
+
+func get_joy_aim_direction():
+  if _aim.length_squared() > dead_zone_squared:
+    return _aim.normalized()
+  else:
+    return Vector2(0, 0)
