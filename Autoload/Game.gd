@@ -24,7 +24,7 @@ func _ready():
   Transition.connect("transition_complete", self, "_on_Transition_complete")
   self.mouse_active = false
 
-func _process(delta):
+func _process(_delta):
   var mouse_position = get_viewport().get_mouse_position()
 
   _aim = Vector2(
@@ -42,8 +42,8 @@ func _process(delta):
 func reset():
   Game.change_scene("res://Scenes/Gameplay.tscn", false)
 
-func change_scene(scene, fade_music = true):
-  target_scene = scene
+func change_scene(new_scene, fade_music = true):
+  target_scene = new_scene
   # Overlay.fade(Color(0, 0, 0, 0), Color(0, 0, 0, 1), 0.3)
   Transition.transition_out()
 

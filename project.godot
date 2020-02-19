@@ -28,6 +28,11 @@ Game="*res://Autoload/Game.gd"
 Util="*res://Autoload/Util.gd"
 Transition="*res://UI/Transition/Transition.tscn"
 
+[debug]
+
+gdscript/warnings/unused_signal=false
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=1920

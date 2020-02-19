@@ -16,6 +16,7 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
+play_music = false
 
 [node name="Rain" parent="." instance=ExtResource( 9 )]
 
@@ -126,6 +127,8 @@ height_tiles = 55
 layer = 2
 
 [node name="HUD" parent="HUD" instance=ExtResource( 4 )]
+anchor_right = 100.0
+anchor_bottom = 0.05
 margin_right = 1920.0
 margin_bottom = 1080.0
 
