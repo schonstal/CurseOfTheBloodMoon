@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BloodMoon_Dog_Death.ogg-b7d6eec9ac102d453cd4ab4de7f0f2ca.oggstr"
+
+[deps]
+
+source_file="res://Enemies/Doggo/BloodMoon_Dog_Death.ogg"
+dest_files=[ "res://.import/BloodMoon_Dog_Death.ogg-b7d6eec9ac102d453cd4ab4de7f0f2ca.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
