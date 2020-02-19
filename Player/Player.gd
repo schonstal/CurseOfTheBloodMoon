@@ -22,6 +22,7 @@ onready var animation = $YSort/Body/AnimationPlayer
 onready var aim = $YSort/Weapon
 onready var iframe_timer = $IframeTimer
 onready var camera = $Camera2D
+onready var hurtbox = $CollisionShape2D
 
 export(Resource) var explosion_scene = preload("res://Player/PlayerExplosion.tscn")
 export(Resource) var hurt_sound = preload("res://Player/SFX/Hurt.ogg")
@@ -36,6 +37,9 @@ func _ready():
   EventBus.connect("blood_paid", self, "_on_blood_paid")
 
 func _physics_process(delta):
+  if !alive:
+    return
+
   handle_movement()
   update_facing()
 
@@ -100,6 +104,7 @@ func hurt(damage):
 func die():
   alive = false
   visible = false
+  hurtbox.disabled = true
   explode()
   Game.scene.sound.play(die_sound, "player_died")
   EventBus.emit_signal("game_over")
