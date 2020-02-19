@@ -4,5 +4,5 @@
 font_path = "res://UI/Fonts/Pirata_One/PirataOne-Regular.ttf"
 
 [resource]
-size = 28
+size = 46
 font_data = SubResource( 1 )
