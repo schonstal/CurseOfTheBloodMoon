@@ -13,7 +13,7 @@ func _ready():
     call_deferred("add_child", reflection)
     reflection.flip_v = flip
 
-func _process(delta):
+func _process(_delta):
   if copy:
     return
 

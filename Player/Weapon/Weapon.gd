@@ -26,8 +26,6 @@ func aim():
   if !Game.scene.player.alive:
     return
 
-  var mouse_position = get_viewport().get_mouse_position()
-
   if Game.mouse_active:
     aim_direction = (
         Game.scene.get_global_mouse_position() +\

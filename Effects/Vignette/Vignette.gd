@@ -2,7 +2,7 @@ extends Sprite
 
 var pulse_phase = 0.0
 
-func _process(delta):
+func _process(_delta):
   var player = Game.scene.player
   if player.health < 250 && player.alive:
     visible = true

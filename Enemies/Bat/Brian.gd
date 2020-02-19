@@ -17,7 +17,7 @@ func _ready():
   sonar_timer.connect("timeout", self, "_on_SonarTimer_timeout")
   parent.connect("hurt", self, "_on_hurt")
 
-func _process(delta):
+func _process(_delta):
   if parent.velocity.x > 0:
     sprite.flip_h = true
 
@@ -30,7 +30,6 @@ func _on_SonarTimer_timeout():
   if wait:
     animation.play("Idle")
     parent.velocity = Vector2.ZERO
-    var player = Game.scene.player
     sonar_timer.start()
   elif Game.scene != null && player != null && is_instance_valid(player) && detect_box.overlaps_body(player):
     animation.play("Attack")

@@ -21,7 +21,7 @@ func _ready():
   animation.connect("animation_finished", self, "_on_Animation_finished")
   sight.connect("body_entered", self, "_on_Sight_body_entered")
 
-func _process(delta):
+func _process(_delta):
   if Game.scene == null || player == null:
     return
 
@@ -57,7 +57,7 @@ func _on_Animation_finished(name):
   if name == "Attack":
     attacking = false
 
-func _on_Sight_body_entered(body):
+func _on_Sight_body_entered(_body):
   spot()
 
 func spot():

@@ -36,7 +36,7 @@ func _ready():
   animation.connect("animation_finished", self, "_on_Animation_finished")
   EventBus.connect("blood_paid", self, "_on_blood_paid")
 
-func _physics_process(delta):
+func _physics_process(_delta):
   if !alive:
     return
 

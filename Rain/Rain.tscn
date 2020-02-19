@@ -39,12 +39,11 @@ script = ExtResource( 2 )
 modulate = Color( 1, 1, 1, 0.266667 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Blah"
 anims/Blah = SubResource( 1 )
 
 [node name="Streak" type="Sprite" parent="."]
-position = Vector2( 0, -50 )
+position = Vector2( 0, -2000 )
 texture = ExtResource( 3 )
