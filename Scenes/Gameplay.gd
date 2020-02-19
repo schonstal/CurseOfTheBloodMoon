@@ -19,6 +19,8 @@ var combo = 1
 var max_combo = 10
 var combo_meter = 0.0
 
+var combo_percent setget ,get_combo_percent
+
 func _enter_tree():
   player = $Bodies/Player
   bodies = $Bodies
@@ -89,3 +91,6 @@ func reset_score():
 func shake(duration = 0.5, frequency = 60, amplitude = 25):
   if camera != null:
     camera.shake(duration, frequency, amplitude)
+
+func get_combo_percent():
+  return combo_meter / (100.0 * combo)

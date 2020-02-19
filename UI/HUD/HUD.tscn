@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://UI/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/HUD/HealthBar/HealthBar.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://UI/HUD/ComboSplatter.gd" type="Script" id=8]
 [ext_resource path="res://UI/Fonts/Pirata_One-128.tres" type="DynamicFont" id=9]
 [ext_resource path="res://UI/HUD/ComboNumber.gd" type="Script" id=10]
+[ext_resource path="res://UI/HUD/ComboMeter.gd" type="Script" id=11]
 
 [sub_resource type="Animation" id=9]
 resource_name = "Combo"
@@ -297,7 +298,13 @@ playback_speed = 4.0
 anims/Combo = SubResource( 9 )
 anims/Idle = SubResource( 10 )
 
+[node name="ComboMeter" type="Node2D" parent="."]
+position = Vector2( 49.136, 49.898 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 11 )
+
 [node name="HealthBar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -0.288864 )
 
 [node name="ScoreShadow" type="Label" parent="."]
 margin_left = 185.814
