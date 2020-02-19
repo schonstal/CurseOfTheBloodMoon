@@ -1,12 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://UI/HUD/MoonBar/HUDMain.png" type="Texture" id=1]
-[ext_resource path="res://UI/HUD/MoonBar/HUDCap.png" type="Texture" id=2]
-[ext_resource path="res://UI/HUD/MoonBar/HUDHealthBar.png" type="Texture" id=3]
+[ext_resource path="res://UI/HUD/NEWHUD/HUDHealthBar.png" type="Texture" id=1]
+[ext_resource path="res://UI/HUD/NEWHUD/HUDCap.png" type="Texture" id=2]
+[ext_resource path="res://UI/HUD/NEWHUD/HUDMain.png" type="Texture" id=3]
 [ext_resource path="res://UI/HUD/HealthBar/Container.gd" type="Script" id=4]
 [ext_resource path="res://UI/HUD/HealthBar/HealthBar.gd" type="Script" id=8]
 
 [node name="HealthBar" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 8 )
 bar_length = 730
 
@@ -37,7 +38,7 @@ __meta__ = {
 }
 
 [node name="Main" type="Sprite" parent="."]
-texture = ExtResource( 1 )
+texture = ExtResource( 3 )
 centered = false
 
 [node name="Container" type="Node2D" parent="."]
@@ -45,14 +46,14 @@ script = ExtResource( 4 )
 length = 730
 
 [node name="Right" type="Sprite" parent="Container"]
-position = Vector2( 849, 0 )
+position = Vector2( 1011, 10 )
 texture = ExtResource( 2 )
 centered = false
 region_rect = Rect2( 0, 0, 27, 800 )
 
 [node name="Middle" type="Sprite" parent="Container"]
-position = Vector2( 119, 0 )
-texture = ExtResource( 3 )
+position = Vector2( 282, 10 )
+texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 730, 30 )
+region_rect = Rect2( 0, 0, 730, 65 )
