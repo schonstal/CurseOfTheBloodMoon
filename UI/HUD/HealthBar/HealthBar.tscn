@@ -9,7 +9,7 @@
 [node name="HealthBar" type="Node2D"]
 scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 8 )
-bar_length = 730
+bar_length = 1410
 
 [node name="FlashTween" type="Tween" parent="."]
 
@@ -18,20 +18,20 @@ bar_length = 730
 [node name="ShrinkTween" type="Tween" parent="."]
 
 [node name="Back" type="ColorRect" parent="."]
-margin_left = 95.0
-margin_top = 5.0
-margin_right = 875.0
-margin_bottom = 25.0
+margin_left = 220.0
+margin_top = 20.0
+margin_right = 1680.0
+margin_bottom = 64.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Bar" type="ColorRect" parent="."]
-margin_left = 95.0
-margin_top = 5.0
-margin_right = 95.0
-margin_bottom = 25.0
+margin_left = 220.0
+margin_top = 20.0
+margin_right = 220.0
+margin_bottom = 64.0
 color = Color( 0.596078, 0.25098, 0.878431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -43,10 +43,10 @@ centered = false
 
 [node name="Container" type="Node2D" parent="."]
 script = ExtResource( 4 )
-length = 730
+length = 1410
 
 [node name="Right" type="Sprite" parent="Container"]
-position = Vector2( 1011, 10 )
+position = Vector2( 1529, 10 )
 texture = ExtResource( 2 )
 centered = false
 region_rect = Rect2( 0, 0, 27, 800 )
@@ -56,4 +56,4 @@ position = Vector2( 282, 10 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 730, 65 )
+region_rect = Rect2( 0, 0, 1410, 65 )

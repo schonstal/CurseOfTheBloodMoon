@@ -40,7 +40,7 @@ func _ready():
   grow_tween.start()
 
 func _process(_delta):
-  var fill_length = bar_length + 50
+  var fill_length = bar_length + 122
   if bar != null:
     bar.rect_size.x = percent * fill_length
     back.rect_size.x = fill_length
