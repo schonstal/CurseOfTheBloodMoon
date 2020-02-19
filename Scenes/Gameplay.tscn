@@ -16,7 +16,6 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
-play_music = false
 
 [node name="Rain" parent="." instance=ExtResource( 9 )]
 
