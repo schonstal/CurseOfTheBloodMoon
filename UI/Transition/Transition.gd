@@ -63,7 +63,7 @@ func transition_out():
   tween.start()
 
 func transition_in():
-  start_sound.play()
+  end_sound.play()
 
   tween.interpolate_property(
       left,
@@ -90,4 +90,3 @@ func _on_Tween_completed(_object, _key):
 
   if right.position.x < 1000:
     shake_time = shake_duration
-    end_sound.play()

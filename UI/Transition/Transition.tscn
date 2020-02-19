@@ -3,8 +3,8 @@
 [ext_resource path="res://UI/Transition/Gums.png" type="Texture" id=1]
 [ext_resource path="res://UI/Transition/Transition.gd" type="Script" id=2]
 [ext_resource path="res://UI/Transition/Teeth.png" type="Texture" id=3]
-[ext_resource path="res://Enemies/Turret/Death.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Enemies/Turret/Attack_2.ogg" type="AudioStream" id=5]
+[ext_resource path="res://UI/Transition/BloodMoon_Jaws_Out.ogg" type="AudioStream" id=4]
+[ext_resource path="res://UI/Transition/BloodMoon_Jaw_Transition_2.ogg" type="AudioStream" id=5]
 
 [node name="Transition" type="CanvasLayer"]
 layer = 100

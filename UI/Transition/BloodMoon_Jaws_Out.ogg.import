@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BloodMoon_Jaws_Out.ogg-2ac1f8597adffbd934fb7748bf865a78.oggstr"
+
+[deps]
+
+source_file="res://UI/Transition/BloodMoon_Jaws_Out.ogg"
+dest_files=[ "res://.import/BloodMoon_Jaws_Out.ogg-2ac1f8597adffbd934fb7748bf865a78.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
