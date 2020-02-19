@@ -30,6 +30,10 @@ func _enter_tree():
 
 func _ready():
   camera = player.camera
+  if SaveManager.get_value('high_score') == null:
+    Game.high_score = 0
+  else:
+    Game.high_score = SaveManager.get_value('high_score')
 
   if play_music:
     MusicPlayer.play_file("res://Music/gameplay.ogg")
@@ -69,6 +73,7 @@ func increment_score(points):
 
   if score > Game.high_score:
     Game.high_score = score
+    SaveManager.set_value('high_score', score)
 
 func reset_combo():
   combo = 1
