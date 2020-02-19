@@ -399,7 +399,7 @@ position = Vector2( -1, 0 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -60 )
 hframes = 13
-frame = 12
+frame = 3
 script = ExtResource( 4 )
 z_offset = 110
 

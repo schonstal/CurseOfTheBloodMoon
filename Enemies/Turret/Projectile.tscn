@@ -6,8 +6,6 @@
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=4]
 [ext_resource path="res://Player/Weapon/MachineGun/OffsetHitbox.gd" type="Script" id=5]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "Idle"
 length = 0.5
@@ -39,10 +37,9 @@ explosion_scene = ExtResource( 3 )
 position = Vector2( 0, -50 )
 texture = ExtResource( 1 )
 hframes = 5
-frame = 1
+frame = 4
 script = ExtResource( 4 )
 z_offset = 50
-hitbox = NodePath("../CollisionShape2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Idle"

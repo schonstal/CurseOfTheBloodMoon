@@ -7,7 +7,7 @@
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
-length = 0.3
+length = 0.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")

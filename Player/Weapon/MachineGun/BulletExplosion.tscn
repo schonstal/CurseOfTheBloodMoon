@@ -3,11 +3,9 @@
 [ext_resource path="res://Player/Weapon/MachineGun/CrystalProjectileImpact0001_5x1.png" type="Texture" id=1]
 [ext_resource path="res://Effects/Explosion.gd" type="Script" id=2]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "Explode"
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -28,6 +26,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, -50 )
 texture = ExtResource( 1 )
 hframes = 5
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Explode"

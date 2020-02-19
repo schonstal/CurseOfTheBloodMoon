@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Player/Weapon/MachineGun/MachineGun.gd" type="Script" id=1]
 
-
 [node name="MachineGun" type="Node2D"]
 script = ExtResource( 1 )
 
