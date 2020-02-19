@@ -62,6 +62,9 @@ func game_over():
   MusicPlayer.enable_filter()
 
 func increment_score(points):
+  if !player.alive:
+    return
+
   combo_meter += points
 
   if combo < max_combo && combo_meter >= 100 * combo:
