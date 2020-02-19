@@ -14,7 +14,7 @@ func _on_combo_increased(combo):
     self.frame = 0
     self.visible = false
 
-  if combo >= 8:
+  if combo >= Game.scene.max_combo:
     self.frame = 8
     animation.play("BloodMoon")
 

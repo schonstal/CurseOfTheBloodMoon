@@ -16,7 +16,7 @@ var game_over_node
 
 var score = 0
 var combo = 1
-var max_combo = 8
+var max_combo = 10
 var combo_meter = 0.0
 
 func _enter_tree():
