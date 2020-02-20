@@ -56,7 +56,7 @@ func _on_combo_increased(combo):
   if combo > 1:
     animating = true
     visible = true
-    frame = combo - 1
+    frame = combo - 2
 
     color_tween.stop_all()
     scale_tween.stop_all()
