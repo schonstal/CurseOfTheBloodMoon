@@ -46,12 +46,6 @@ func _process(delta):
 
     scale_tween.start()
 
-# func _process(delta):
-#  var length = max_scale - min_scale
-#  var intensity = 9 * (scale.x - min_scale) / length
-
-#  modulate = Color(intensity + 1, intensity + 1, intensity + 1, 1)
-
 func _on_combo_increased(combo):
   if combo > 1:
     animating = true
