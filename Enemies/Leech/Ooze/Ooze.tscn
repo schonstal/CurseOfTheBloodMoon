@@ -6,7 +6,7 @@
 [ext_resource path="res://Enemies/Leech/Ooze/Bubble/Bubble.png" type="Texture" id=4]
 [ext_resource path="res://Enemies/Leech/Ooze/Ooze.gd" type="Script" id=5]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "Fade"
 length = 0.1
 tracks/0/type = "value"
@@ -146,16 +146,16 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 33.4218, 8.42596 )
 
-[sub_resource type="CanvasItemMaterial" id=3]
+[sub_resource type="CanvasItemMaterial" id=4]
 particles_animation = true
 particles_anim_h_frames = 7
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 2
 emission_box_extents = Vector3( 20, 8, 1 )
 flag_disable_z = true
@@ -178,26 +178,27 @@ script = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Spawn"
 playback_speed = 0.75
-anims/Fade = SubResource( 5 )
+anims/Fade = SubResource( 1 )
 anims/Spawn = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
 script = ExtResource( 3 )
 damage = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -0.161 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
-material = SubResource( 3 )
+material = SubResource( 4 )
 position = Vector2( -0.0005, -6.23393 )
 emitting = false
 amount = 4
 one_shot = true
 randomness = 1.0
-process_material = SubResource( 4 )
+process_material = SubResource( 5 )
 texture = ExtResource( 4 )
 
 [node name="LiftetimeTimer" type="Timer" parent="."]
