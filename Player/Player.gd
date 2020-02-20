@@ -70,6 +70,8 @@ func handle_movement():
   direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
   if direction.length() > 0.3:
+    if Game.mouse_active:
+      direction = direction.normalized()
     velocity = direction * run_speed
   else:
     velocity = Vector2.ZERO
