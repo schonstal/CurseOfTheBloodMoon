@@ -8,11 +8,11 @@
 [ext_resource path="res://UI/HUD/BloodMoon.gd" type="Script" id=6]
 [ext_resource path="res://UI/HUD/NEWHUD/ComboSplatter.png" type="Texture" id=7]
 [ext_resource path="res://UI/HUD/ComboSplatter.gd" type="Script" id=8]
-[ext_resource path="res://UI/Fonts/Pirata_One-128.tres" type="DynamicFont" id=9]
+[ext_resource path="res://UI/HUD/Multipliers/Combo.png" type="Texture" id=9]
 [ext_resource path="res://UI/HUD/ComboNumber.gd" type="Script" id=10]
 [ext_resource path="res://UI/HUD/ComboMeter.gd" type="Script" id=11]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=1]
 resource_name = "Combo"
 length = 1.3
 tracks/0/type = "value"
@@ -52,7 +52,7 @@ tracks/2/keys = {
 "values": [ 4.0, 1.5 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -67,7 +67,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "EarnedPoints"
 length = 0.1
 tracks/0/type = "value"
@@ -83,7 +83,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 resource_name = "HighScore"
 length = 0.2
 loop = true
@@ -100,7 +100,7 @@ tracks/0/keys = {
 "values": [ Color( 0.733333, 0.145098, 0.192157, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "Idle"
 length = 0.1
 tracks/0/type = "value"
@@ -116,8 +116,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "EarnedPoints"
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -132,8 +131,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "HighScore"
+[sub_resource type="Animation" id=7]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -149,8 +147,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.733333, 0.145098, 0.192157, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
+[sub_resource type="Animation" id=8]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:custom_colors/font_color")
@@ -166,85 +163,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-resource_name = "Combo"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 87, 165 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 38.7066, 80.5905 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 12.1257, 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.25, 0.25 ) ]
-}
-
-[sub_resource type="Animation" id=12]
-resource_name = "Idle"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 87, 165 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 38.7066, 80.5905 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.25, 0.25 ) ]
-}
-
-[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -260,7 +178,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 0.6, 0.6 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -274,6 +192,61 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ) ]
 }
 
+[sub_resource type="Animation" id=13]
+resource_name = "Combo"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 40, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.3, 0.3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 40, 1 ),
+"update": 0,
+"values": [ Vector2( 99.248, 162.27 ), Vector2( 50, 108 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 50, 108 ) ]
+}
+
 [node name="HUD" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -283,20 +256,20 @@ __meta__ = {
 }
 
 [node name="ComboSplatter" type="Sprite" parent="."]
-visible = false
 position = Vector2( 10.1405, 68.9624 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
 centered = false
 vframes = 5
 hframes = 3
+frame = 5
 script = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ComboSplatter"]
 autoplay = "Idle"
-playback_speed = 4.0
-anims/Combo = SubResource( 9 )
-anims/Idle = SubResource( 10 )
+playback_speed = 1.91667
+anims/Combo = SubResource( 1 )
+anims/Idle = SubResource( 2 )
 
 [node name="ComboMeter" type="Node2D" parent="."]
 position = Vector2( 49.136, 49.898 )
@@ -320,13 +293,13 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ScoreShadow"]
-anims/EarnedPoints = SubResource( 6 )
+anims/EarnedPoints = SubResource( 3 )
 
 [node name="HighScoreAnimation" type="AnimationPlayer" parent="ScoreShadow"]
 autoplay = "Idle"
 playback_speed = 0.25
-anims/HighScore = SubResource( 7 )
-anims/Idle = SubResource( 8 )
+anims/HighScore = SubResource( 4 )
+anims/Idle = SubResource( 5 )
 
 [node name="Score" type="Label" parent="."]
 margin_left = 183.814
@@ -342,35 +315,18 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Score"]
-anims/EarnedPoints = SubResource( 1 )
+anims/EarnedPoints = SubResource( 6 )
 
 [node name="HighScoreAnimation" type="AnimationPlayer" parent="Score"]
 autoplay = "Idle"
 playback_speed = 0.25
-anims/HighScore = SubResource( 2 )
-anims/Idle = SubResource( 3 )
-
-[node name="ComboNumber" type="Label" parent="."]
-margin_left = 38.7066
-margin_top = 80.5905
-margin_right = 125.707
-margin_bottom = 245.591
-rect_scale = Vector2( 0.25, 0.25 )
-custom_fonts/font = ExtResource( 9 )
-text = "x1"
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ComboNumber"]
-autoplay = "Idle"
-anims/Combo = SubResource( 11 )
-anims/Idle = SubResource( 12 )
+anims/HighScore = SubResource( 7 )
+anims/Idle = SubResource( 8 )
 
 [node name="BloodMoon" type="Sprite" parent="."]
 visible = false
 position = Vector2( 50, 49 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 hframes = 9
 frame = 8
@@ -378,5 +334,24 @@ script = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BloodMoon"]
 autoplay = "Idle"
-anims/BloodMoon = SubResource( 4 )
-anims/Idle = SubResource( 5 )
+anims/BloodMoon = SubResource( 11 )
+anims/Idle = SubResource( 12 )
+
+[node name="ComboNumber" type="Sprite" parent="."]
+position = Vector2( 50, 108 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 9 )
+vframes = 2
+hframes = 8
+script = ExtResource( 10 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ComboNumber"]
+autoplay = "Idle"
+anims/Combo = SubResource( 13 )
+anims/Idle = SubResource( 10 )
+
+[node name="ColorTween" type="Tween" parent="ComboNumber"]
+
+[node name="ScaleTween" type="Tween" parent="ComboNumber"]
+
+[node name="PositionTween" type="Tween" parent="ComboNumber"]

@@ -413,7 +413,6 @@ anims/Run = SubResource( 20 )
 one_shot = true
 
 [node name="RunSound" type="AudioStreamPlayer" parent="."]
-volume_db = -10.0
 script = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

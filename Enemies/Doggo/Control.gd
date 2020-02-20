@@ -66,3 +66,6 @@ func spot():
 
   spotted = true
   animation.play("Notice")
+
+func shake():
+  EventBus.emit_signal("shake_camera", 0.8, 60, 10)

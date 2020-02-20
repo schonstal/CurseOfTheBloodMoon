@@ -406,6 +406,20 @@ tracks/8/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/9/type = "method"
+tracks/9/path = NodePath("../Control")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "shake"
+} ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.6
@@ -531,7 +545,7 @@ tracks/8/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 52.5566, 11.2888 )
+extents = Vector2( 35.9825, 22.9783 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 124.317, 16.5678 )
@@ -556,10 +570,10 @@ die_sound = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-offset = Vector2( -14.353, -67.136 )
+offset = Vector2( 22, -67.136 )
 vframes = 5
 hframes = 6
-frame = 1
+frame = 15
 script = ExtResource( 2 )
 z_offset = 140
 
@@ -571,7 +585,7 @@ anims/Notice = SubResource( 3 )
 anims/Run = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 50.9829, -4.18166 )
+position = Vector2( 63.1689, -17.0276 )
 shape = SubResource( 5 )
 
 [node name="Control" type="Node2D" parent="."]
@@ -614,7 +628,7 @@ position = Vector2( 100.852, -7.02345 )
 
 [node name="NoticeSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
-volume_db = 15.0
+volume_db = 10.0
 attenuation = 0.0717937
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
