@@ -40,20 +40,3 @@ func spawn_bullet():
       Vector2(rand_range(0.0, 0.05), rand_range(0, 0.05))) *\
       shoot_velocity * rand_range(0.9, 1)
   Game.scene.bodies.call_deferred("add_child", bullet)
-
-  if Game.scene.combo >= Game.scene.max_combo:
-    bullet = bullet_scene.instance()
-    bullet.global_position = global_position + Vector2(0, 50)
-    bullet.velocity = (parent.aim_direction.normalized() +\
-        Vector2(0.2, 0.2) +
-        Vector2(rand_range(0.0, 0.05), rand_range(0, 0.05))) *\
-        shoot_velocity * rand_range(0.9, 1)
-    Game.scene.bodies.call_deferred("add_child", bullet)
-
-    bullet = bullet_scene.instance()
-    bullet.global_position = global_position + Vector2(0, 50)
-    bullet.velocity = (parent.aim_direction.normalized() +\
-        Vector2(-0.2, -0.2) +
-        Vector2(rand_range(0.0, 0.05), rand_range(0, 0.05))) *\
-        shoot_velocity * rand_range(0.9, 1)
-    Game.scene.bodies.call_deferred("add_child", bullet)
