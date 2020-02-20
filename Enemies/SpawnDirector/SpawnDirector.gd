@@ -1,7 +1,9 @@
 extends Node
 
+onready var fly_spawn_timer = $FlySpawnTimer
+
 func _ready():
-  pass
+  fly_spawn_timer.connect("timeout", self, "_on_SpawnTimer_timeout")
 
 # TODO: Flies
 func _on_FlySpawnTimer_timeout():

@@ -9,7 +9,7 @@
 [ext_resource path="res://Enemies/Turret/Behavior.gd" type="Script" id=7]
 [ext_resource path="res://Enemies/Turret/Attack_2.ogg" type="AudioStream" id=8]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "Attack"
 length = 0.5
 tracks/0/type = "value"
@@ -75,7 +75,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -136,8 +136,8 @@ script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "Idle"
-anims/Attack = SubResource( 4 )
-anims/Idle = SubResource( 5 )
+anims/Attack = SubResource( 1 )
+anims/Idle = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.147285, -8.39539 )
@@ -145,7 +145,6 @@ shape = SubResource( 3 )
 
 [node name="Behavior" type="Node2D" parent="."]
 script = ExtResource( 7 )
-bullet_count = 12
 
 [node name="AttackTimer" type="Timer" parent="Behavior"]
 wait_time = 2.0
