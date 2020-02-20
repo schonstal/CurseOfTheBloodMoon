@@ -18,6 +18,7 @@ var score = 0
 var combo = 1
 var max_combo = 10
 var combo_meter = 0.0
+var combo_range = 75.0
 
 var combo_percent setget ,get_combo_percent
 
@@ -50,7 +51,10 @@ func _ready():
 
 func _process(delta):
   if Engine.time_scale < 1:
-    Engine.time_scale += delta * 3
+    if player.alive:
+      Engine.time_scale += delta * 15
+    else:
+      Engine.time_scale += delta * 3
   if Engine.time_scale > 1:
     Engine.time_scale = 1
 
@@ -69,7 +73,7 @@ func increment_score(points):
 
   combo_meter += points
 
-  if combo < max_combo && combo_meter >= 100 * combo:
+  if combo < max_combo && combo_meter >= combo_range * combo:
     combo_meter = 0
     combo += 1
     EventBus.emit_signal("combo_increased", combo)
@@ -93,4 +97,4 @@ func shake(duration = 0.5, frequency = 60, amplitude = 25):
     camera.shake(duration, frequency, amplitude)
 
 func get_combo_percent():
-  return combo_meter / (100.0 * combo)
+  return combo_meter / (combo_range * combo)

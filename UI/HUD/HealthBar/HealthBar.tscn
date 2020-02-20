@@ -20,7 +20,7 @@ bar_length = 1410
 [node name="Back" type="ColorRect" parent="."]
 margin_left = 220.0
 margin_top = 20.0
-margin_right = 1680.0
+margin_right = 1752.0
 margin_bottom = 64.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
@@ -32,7 +32,6 @@ margin_left = 220.0
 margin_top = 20.0
 margin_right = 220.0
 margin_bottom = 64.0
-color = Color( 0.596078, 0.25098, 0.878431, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -46,7 +45,7 @@ script = ExtResource( 4 )
 length = 1410
 
 [node name="Right" type="Sprite" parent="Container"]
-position = Vector2( 1529, 10 )
+position = Vector2( 1691, 10 )
 texture = ExtResource( 2 )
 centered = false
 region_rect = Rect2( 0, 0, 27, 800 )

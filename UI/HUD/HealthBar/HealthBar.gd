@@ -18,11 +18,14 @@ var length_scale = 1
 var active = false
 var percent = 0.0
 
+var health_was = 0
+
 func _ready():
   if Engine.editor_hint:
     return
 
   max_amount = Game.scene.player.max_health
+  health_was = max_amount
   bar.color = color
 
   EventBus.connect("player_hurt", self, "_on_player_hurt")
@@ -50,15 +53,17 @@ func update_bar(amount):
   percent = float(amount) / max_amount
 
 func _on_player_hurt(health):
-  flash_tween.interpolate_property(
-      bar,
-      "modulate",
-      Color(10, 10, 10, 1),
-      color,
-      0.3,
-      Tween.TRANS_QUART,
-      Tween.EASE_OUT)
+  if health > health_was:
+    flash_tween.interpolate_property(
+        bar,
+        "modulate",
+        Color(10, 10, 10, 1),
+        color,
+        0.3,
+        Tween.TRANS_QUART,
+        Tween.EASE_OUT)
 
-  flash_tween.start()
+    flash_tween.start()
 
+  health_was = health
   update_bar(health)
