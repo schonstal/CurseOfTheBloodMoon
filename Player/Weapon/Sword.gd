@@ -25,8 +25,4 @@ func _on_body_enter(body):
   if body.has_method("hurt"):
     body.hurt(damage)
     hit_sound.play()
-    EventBus.emit_signal("blood_paid", -Game.scene.combo * 10)
-
-    # if body.health <= 0:
-    #  EventBus.emit_signal("shake_camera", 0.25, 60, 10)
-    #  Engine.time_scale = 0.1
+    EventBus.emit_signal("blood_paid", -Game.scene.combo * 20)

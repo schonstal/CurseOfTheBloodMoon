@@ -163,7 +163,7 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "Stun"
 length = 0.3
 tracks/0/type = "value"
@@ -241,13 +241,13 @@ tracks/5/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 13.9319, 8.04961 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=5]
 radius = 244.978
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 12.2862, 11.146 )
 
 [node name="Bat" type="KinematicBody2D"]
@@ -269,10 +269,10 @@ script = ExtResource( 2 )
 autoplay = "Idle"
 anims/Attack = SubResource( 1 )
 anims/Idle = SubResource( 2 )
-anims/Stun = SubResource( 6 )
+anims/Stun = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Brian" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -288,12 +288,12 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brian/DetectBox"]
 position = Vector2( 0.380157, -4.56182 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 8
 script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 disabled = true
