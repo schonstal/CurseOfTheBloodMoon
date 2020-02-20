@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BloodMoon_Sword_Clank.ogg-1ccac80ad254b87fe1e5fe93b0057523.oggstr"
+
+[deps]
+
+source_file="res://Player/Melee/BloodMoon_Sword_Clank.ogg"
+dest_files=[ "res://.import/BloodMoon_Sword_Clank.ogg-1ccac80ad254b87fe1e5fe93b0057523.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
