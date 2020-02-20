@@ -62,9 +62,9 @@ func _on_combo_increased(combo):
         "modulate",
         Color(10, 10, 10, 1),
         Color(1, 1, 1, 1),
-        1.0,
-        Tween.TRANS_QUINT,
-        Tween.EASE_OUT)
+        0.5,
+        Tween.TRANS_QUART,
+        Tween.EASE_IN)
 
     color_tween.start()
 
@@ -74,8 +74,8 @@ func _on_combo_increased(combo):
         Vector2(max_scale, max_scale),
         Vector2(min_scale, min_scale),
         0.5,
-        Tween.TRANS_QUINT,
-        Tween.EASE_OUT)
+        Tween.TRANS_QUART,
+        Tween.EASE_IN)
 
     scale_tween.start()
 
@@ -85,8 +85,8 @@ func _on_combo_increased(combo):
         Vector2(100, 162),
         start_position,
         0.5,
-        Tween.TRANS_QUINT,
-        Tween.EASE_OUT)
+        Tween.TRANS_QUART,
+        Tween.EASE_IN)
 
     position_tween.start()
 
