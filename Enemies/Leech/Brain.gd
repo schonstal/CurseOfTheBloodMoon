@@ -26,7 +26,7 @@ func move():
 func move_complete():
   var heading = parent.velocity.normalized() * 100
   var future = parent.position + heading
-  var wall_bound = abs(future.x) > 1050 || abs(future.y) > 680
+  var wall_bound = abs(future.x) > 1040 || abs(future.y) > 660
 
   if wall_bound || randf() < change_direction_chance:
     change_direction()
