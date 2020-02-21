@@ -97,6 +97,7 @@ func hurt(damage):
   if health <= 0:
     die()
 
+  Input.start_joy_vibration(0, 1.0, 1.0, 0.2)
   EventBus.emit_signal("player_hurt", health)
   EventBus.emit_signal("shake_camera", 0.25, 60, 20)
   Overlay.fade(Color(0.733, 0.145, 0.192, 0.4), Color(0.733, 0.145, 0.192, 0), 0.3)
