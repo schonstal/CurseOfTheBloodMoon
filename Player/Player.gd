@@ -66,8 +66,19 @@ func update_facing():
 func handle_movement():
   var direction = Vector2(0, 0)
 
-  direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-  direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+  if Game.mouse_active:
+    if Input.is_action_pressed("kb_move_left"):
+      direction.x = -1
+    elif Input.is_action_pressed("kb_move_right"):
+      direction.x = 1
+
+    if Input.is_action_pressed("kb_move_up"):
+      direction.y = -1
+    elif Input.is_action_pressed("kb_move_down"):
+      direction.y = 1
+  else:
+    direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+    direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
   if direction.length() > 0.3:
     if Game.mouse_active:

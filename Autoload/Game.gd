@@ -34,14 +34,25 @@ func _process(delta):
       Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")\
       )
 
+  var move_direction = Vector2(0, 0)
+  move_direction.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+  move_direction.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+
   if mouse_wait_time > 0:
     mouse_wait_time -= delta
-  elif mouse_position_was != mouse_position:
+  elif mouse_position_was != mouse_position || kb_move_pressed():
     mouse_active = true
-  elif self.joy_aim_direction.length_squared() > 0:
+  elif self.joy_aim_direction.length_squared() > 0 || move_direction.length_squared() > dead_zone_squared:
     mouse_active = false
 
   mouse_position_was = mouse_position
+
+func kb_move_pressed():
+  for direction in ["left", "right", "up", "down"]:
+    if Input.is_action_pressed("kb_move_%s" % direction):
+      return true
+
+  return false
 
 func reset():
   Game.change_scene("res://Scenes/Gameplay.tscn", false)
