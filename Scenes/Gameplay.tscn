@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Gameplay.gd" type="Script" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://Effects/ReflectedSprite.gd" type="Script" id=13]
 [ext_resource path="res://Arena/Grass/Grass0001.png" type="Texture" id=14]
 [ext_resource path="res://UI/Reticle.gd" type="Script" id=15]
+[ext_resource path="res://Arena/BackgroundPieces/BackgroundSide.png" type="Texture" id=16]
+[ext_resource path="res://Arena/BackgroundPieces/BackgroundFront.png" type="Texture" id=17]
+[ext_resource path="res://Arena/BackgroundPieces/BackgroundBack.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 39.0798, 796.297 )
@@ -26,6 +29,7 @@ extents = Vector2( 1056.45, 85.5123 )
 script = ExtResource( 2 )
 
 [node name="Arena" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -75 )
 texture = ExtResource( 3 )
 
@@ -64,7 +68,35 @@ collision_mask = 15
 position = Vector2( -2.72626, 225.314 )
 shape = SubResource( 2 )
 
+[node name="BackgroundSideRightReflection" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 1095, 101.75 )
+texture = ExtResource( 16 )
+flip_v = true
+
+[node name="BackgroundSideLeftReflection2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( -1095, 101.75 )
+texture = ExtResource( 16 )
+flip_v = true
+
+[node name="BackgroundBackReflection" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.196078 )
+position = Vector2( 0, -491.841 )
+texture = ExtResource( 18 )
+flip_v = true
+
+[node name="BackgroundFrontReflection" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+position = Vector2( 0, 870.248 )
+texture = ExtResource( 17 )
+flip_v = true
+
 [node name="Rain" parent="." instance=ExtResource( 9 )]
+
+[node name="BackgroundBack" type="Sprite" parent="."]
+position = Vector2( 0, -745 )
+texture = ExtResource( 18 )
 
 [node name="Bodies" type="YSort" parent="."]
 script = ExtResource( 10 )
@@ -172,6 +204,18 @@ position = Vector2( 876.854, 622.146 )
 texture = ExtResource( 14 )
 script = ExtResource( 13 )
 z_offset = 26
+
+[node name="BackgroundSideRight" type="Sprite" parent="."]
+position = Vector2( 1095, -20 )
+texture = ExtResource( 16 )
+
+[node name="BackgroundSideLeft" type="Sprite" parent="."]
+position = Vector2( -1095, -20 )
+texture = ExtResource( 16 )
+
+[node name="BackgroundFront" type="Sprite" parent="."]
+position = Vector2( 0, 612.534 )
+texture = ExtResource( 17 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 2
