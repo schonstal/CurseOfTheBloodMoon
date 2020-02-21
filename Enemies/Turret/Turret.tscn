@@ -124,6 +124,7 @@ collision_mask = 2
 script = ExtResource( 3 )
 max_health = 25
 points = 250
+enemy_type = "Turret"
 explosion_scene = ExtResource( 4 )
 hurt_sound = ExtResource( 5 )
 die_sound = ExtResource( 6 )

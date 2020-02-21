@@ -26,3 +26,5 @@ func _on_body_enter(body):
     body.hurt(damage)
     hit_sound.play()
     EventBus.emit_signal("blood_paid", -Game.scene.combo * 20)
+
+    Input.start_joy_vibration(0, 1.0, 1.0, 0.2)

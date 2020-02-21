@@ -9,6 +9,8 @@ export var points = 100
 export var flash_time = 0.05
 export var stun_time = 0.5
 export var max_speed = Vector2(200, 200)
+export var enemy_type = "Bat"
+
 var alive = true
 var health = 100
 
@@ -72,7 +74,7 @@ func hurt(damage):
 
   emit_signal("hurt")
 
-  Game.scene.sound.play(hurt_sound, "enemy_hurt")
+  Game.scene.sound.play(hurt_sound, "%s_hurt" % enemy_type)
 
 func die():
   alive = false

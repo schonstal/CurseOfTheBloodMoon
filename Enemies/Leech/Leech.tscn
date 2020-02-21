@@ -486,6 +486,7 @@ max_health = 10
 points = 250
 stun_time = 0.0
 max_speed = Vector2( 10000, 10000 )
+enemy_type = "Leech"
 explosion_scene = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]

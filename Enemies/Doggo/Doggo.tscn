@@ -564,6 +564,7 @@ max_health = 50
 points = 500
 stun_time = 0.0
 max_speed = Vector2( 400, 400 )
+enemy_type = "Dog"
 explosion_scene = ExtResource( 4 )
 hurt_sound = ExtResource( 11 )
 die_sound = ExtResource( 8 )
