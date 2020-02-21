@@ -31,6 +31,9 @@ func _process(delta):
     started = true
 
 func _on_SpawnTimer_timeout():
+  if !Game.scene.player.alive:
+    return
+
   var score_percent = float(Game.scene.score - min_score) / float(max_score - min_score)
 
   var group_size = int(min(
