@@ -10,8 +10,6 @@
 
 [node name="BatSpawner" parent="." instance=ExtResource( 1 )]
 max_score = 300000
-x_range = 900
-y_range = 500
 max_group_size = 2
 min_group_size = 2
 min_spawn_time = 3.0
@@ -20,38 +18,31 @@ max_spawn_time = 5.0
 [node name="DogSpawner" parent="." instance=ExtResource( 1 )]
 max_score = 300000
 min_score = 10000
-x_range = 900
-y_range = 500
 enemy_scene = ExtResource( 2 )
 first_spawn_time = 5.0
 min_spawn_time = 10.0
 max_spawn_time = 20.0
 
 [node name="TurretSpawner" parent="." instance=ExtResource( 1 )]
-max_score = 400000
-x_range = 800
-y_range = 400
+max_score = 300000
 enemy_scene = ExtResource( 3 )
-first_spawn_time = 3.0
+first_spawn_time = 8.0
 min_spawn_time = 8.0
 max_spawn_time = 12.0
 
 [node name="LeechSpawner" parent="." instance=ExtResource( 1 )]
-max_score = 300000
-min_score = 20000
-x_range = 800
-y_range = 400
+max_score = 400000
+max_group_size = 6
+min_group_size = 2
 enemy_scene = ExtResource( 4 )
-first_spawn_time = 2.0
-min_spawn_time = 14.0
-max_spawn_time = 25.0
+first_spawn_time = 35.0
+min_spawn_time = 20.0
+max_spawn_time = 40.0
 
 [node name="FlySpawner" parent="." instance=ExtResource( 1 )]
-max_score = 300000
-min_score = 1000
-max_group_size = 12
+max_group_size = 8
 min_group_size = 3
 enemy_scene = ExtResource( 5 )
-first_spawn_time = 2.0
+first_spawn_time = 3.0
 max_spawn_time = 6.0
 radial = true

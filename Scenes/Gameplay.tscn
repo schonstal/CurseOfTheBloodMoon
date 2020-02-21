@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Gameplay.gd" type="Script" id=2]
-[ext_resource path="res://Arena/Wall/VerticalWall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Arena/BloodMoonBackground.jpg" type="Texture" id=3]
 [ext_resource path="res://UI/HUD/HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Arena/Wall/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/GameOver/Paused.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Effects/Vignette/vignette.png" type="Texture" id=6]
 [ext_resource path="res://Util/SoundManager.gd" type="Script" id=7]
 [ext_resource path="res://Effects/Vignette/Vignette.gd" type="Script" id=8]
@@ -16,8 +16,53 @@
 [ext_resource path="res://Arena/Grass/Grass0001.png" type="Texture" id=14]
 [ext_resource path="res://UI/Reticle.gd" type="Script" id=15]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 39.0798, 796.297 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1056.45, 85.5123 )
+
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="Arena" type="Sprite" parent="."]
+position = Vector2( 0, -75 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Arena"]
+position = Vector2( -1050, 0 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/StaticBody2D"]
+position = Vector2( -41.9269, 7.95166 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Arena"]
+position = Vector2( 1134.5, 2.7793 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/StaticBody2D2"]
+position = Vector2( -41.9269, 7.95166 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Arena"]
+position = Vector2( 0, -630 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/StaticBody2D3"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Arena"]
+position = Vector2( 0, 630 )
+collision_layer = 16
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/StaticBody2D4"]
+position = Vector2( -2.72626, 225.314 )
+shape = SubResource( 2 )
 
 [node name="Rain" parent="." instance=ExtResource( 9 )]
 
@@ -26,14 +71,6 @@ script = ExtResource( 10 )
 
 [node name="Player" parent="Bodies" instance=ExtResource( 1 )]
 
-[node name="Wall" parent="Bodies" instance=ExtResource( 5 )]
-position = Vector2( 0, 630 )
-width_tiles = 60
-
-[node name="Wall2" parent="Bodies" instance=ExtResource( 5 )]
-position = Vector2( 0, -630 )
-width_tiles = 60
-
 [node name="Grass0001" type="Sprite" parent="Bodies"]
 position = Vector2( -433.456, -51.4742 )
 texture = ExtResource( 14 )
@@ -41,13 +78,25 @@ script = ExtResource( 13 )
 z_offset = 26
 
 [node name="Grass0002" type="Sprite" parent="Bodies"]
-position = Vector2( -615.65, -67.4684 )
+position = Vector2( -669.452, -125.61 )
+texture = ExtResource( 14 )
+script = ExtResource( 13 )
+z_offset = 26
+
+[node name="Grass0016" type="Sprite" parent="Bodies"]
+position = Vector2( -875.261, -435.936 )
 texture = ExtResource( 14 )
 script = ExtResource( 13 )
 z_offset = 26
 
 [node name="Grass0003" type="Sprite" parent="Bodies"]
 position = Vector2( -112.878, -244.795 )
+texture = ExtResource( 14 )
+script = ExtResource( 13 )
+z_offset = 26
+
+[node name="Grass0017" type="Sprite" parent="Bodies"]
+position = Vector2( 772.494, -373.514 )
 texture = ExtResource( 14 )
 script = ExtResource( 13 )
 z_offset = 26
@@ -77,7 +126,7 @@ script = ExtResource( 13 )
 z_offset = 26
 
 [node name="Grass0008" type="Sprite" parent="Bodies"]
-position = Vector2( -876.161, 190.966 )
+position = Vector2( -791.119, 154.519 )
 texture = ExtResource( 14 )
 script = ExtResource( 13 )
 z_offset = 26
@@ -100,13 +149,29 @@ texture = ExtResource( 14 )
 script = ExtResource( 13 )
 z_offset = 26
 
-[node name="Wall4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1130, 0 )
-height_tiles = 55
+[node name="Grass0012" type="Sprite" parent="Bodies"]
+position = Vector2( 490.704, -433.929 )
+texture = ExtResource( 14 )
+script = ExtResource( 13 )
+z_offset = 26
 
-[node name="Wall3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1130, 0 )
-height_tiles = 55
+[node name="Grass0013" type="Sprite" parent="Bodies"]
+position = Vector2( -872.068, 597.975 )
+texture = ExtResource( 14 )
+script = ExtResource( 13 )
+z_offset = 26
+
+[node name="Grass0014" type="Sprite" parent="Bodies"]
+position = Vector2( -985.941, 349.817 )
+texture = ExtResource( 14 )
+script = ExtResource( 13 )
+z_offset = 26
+
+[node name="Grass0015" type="Sprite" parent="Bodies"]
+position = Vector2( 876.854, 622.146 )
+texture = ExtResource( 14 )
+script = ExtResource( 13 )
+z_offset = 26
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 2
@@ -120,6 +185,8 @@ margin_bottom = 1080.0
 [node name="Reticle" parent="HUD" instance=ExtResource( 12 )]
 visible = false
 script = ExtResource( 15 )
+
+[node name="Paused" parent="HUD" instance=ExtResource( 5 )]
 
 [node name="Effects" type="CanvasLayer" parent="."]
 layer = 3

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://UI/default_theme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/HUD/HealthBar/HealthBar.tscn" type="PackedScene" id=2]
@@ -162,36 +162,6 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.6, 0.6 ) ]
-}
-
-[sub_resource type="Animation" id=10]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.5, 0.5 ) ]
-}
-
 [sub_resource type="Animation" id=11]
 resource_name = "Combo"
 length = 0.5
@@ -331,10 +301,7 @@ hframes = 9
 frame = 8
 script = ExtResource( 6 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BloodMoon"]
-autoplay = "Idle"
-anims/BloodMoon = SubResource( 9 )
-anims/Idle = SubResource( 10 )
+[node name="ScaleTween" type="Tween" parent="BloodMoon"]
 
 [node name="ComboNumber" type="Sprite" parent="."]
 position = Vector2( 68, 118 )

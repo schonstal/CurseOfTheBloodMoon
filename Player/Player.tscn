@@ -417,10 +417,10 @@ script = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-limit_left = -1120
-limit_top = -630
-limit_right = 1120
-limit_bottom = 640
+limit_left = -1150
+limit_top = -730
+limit_right = 1150
+limit_bottom = 710
 smoothing_enabled = true
 smoothing_speed = 8.0
 script = ExtResource( 8 )

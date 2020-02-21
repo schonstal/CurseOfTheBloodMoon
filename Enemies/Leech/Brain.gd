@@ -24,11 +24,16 @@ func move():
     ooze_spawn.spawn_ooze(false)
 
 func move_complete():
+  var heading = parent.velocity.normalized() * 100
+  var future = parent.position + heading
+  var wall_bound = abs(future.x) > 1050 || abs(future.y) > 680
+
+  if wall_bound || randf() < change_direction_chance:
+    change_direction()
+
+
   parent.velocity = Vector2.ZERO
   parent.acceleration = Vector2.ZERO
-
-  if randf() < change_direction_chance:
-    change_direction()
 
   start_moving()
 
