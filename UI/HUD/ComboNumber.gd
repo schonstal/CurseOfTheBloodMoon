@@ -15,7 +15,8 @@ var accum = bpm
 var animating = false
 var previous_beat_time = 0.0
 
-onready var start_position = position
+var start_position = Vector2(50, 108)
+var max_start_position = Vector2(68, 108)
 
 func _ready():
   EventBus.connect("combo_increased", self, "_on_combo_increased")
@@ -79,11 +80,15 @@ func _on_combo_increased(combo):
 
     scale_tween.start()
 
+    var destination = start_position
+    if combo >= 10:
+      destination = max_start_position
+
     position_tween.interpolate_property(
         self,
         "position",
         Vector2(100, 162),
-        start_position,
+        destination,
         0.5,
         Tween.TRANS_QUART,
         Tween.EASE_IN)

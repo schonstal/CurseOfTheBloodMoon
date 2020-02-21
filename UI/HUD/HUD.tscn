@@ -162,7 +162,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -178,7 +178,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 0.6, 0.6 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=10]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -192,7 +192,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0.5, 0.5 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=11]
 resource_name = "Combo"
 length = 0.5
 tracks/0/type = "value"
@@ -220,8 +220,7 @@ tracks/1/keys = {
 "values": [ Vector2( 99.248, 162.27 ), Vector2( 50, 108 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "Idle"
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
@@ -334,21 +333,22 @@ script = ExtResource( 6 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BloodMoon"]
 autoplay = "Idle"
-anims/BloodMoon = SubResource( 11 )
-anims/Idle = SubResource( 12 )
+anims/BloodMoon = SubResource( 9 )
+anims/Idle = SubResource( 10 )
 
 [node name="ComboNumber" type="Sprite" parent="."]
-position = Vector2( 50, 108 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 68, 118 )
+scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 9 )
 vframes = 2
 hframes = 8
+frame = 8
 script = ExtResource( 10 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ComboNumber"]
 autoplay = "Idle"
-anims/Combo = SubResource( 13 )
-anims/Idle = SubResource( 10 )
+anims/Combo = SubResource( 11 )
+anims/Idle = SubResource( 12 )
 
 [node name="ColorTween" type="Tween" parent="ComboNumber"]
 
