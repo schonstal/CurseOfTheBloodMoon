@@ -13,7 +13,9 @@ var dead_zone = 0.4
 var _aim = Vector2(0, 0)
 
 onready var dead_zone_squared = dead_zone * dead_zone
-onready var mouse_position_was = get_viewport().get_mouse_position()
+
+var mouse_position_was = null
+var mouse_wait_time = 1
 
 func initialize():
   scene = $'../World'
@@ -24,7 +26,7 @@ func _ready():
   Transition.connect("transition_complete", self, "_on_Transition_complete")
   Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-func _process(_delta):
+func _process(delta):
   var mouse_position = get_viewport().get_mouse_position()
 
   _aim = Vector2(
@@ -32,7 +34,9 @@ func _process(_delta):
       Input.get_action_strength("aim_down") - Input.get_action_strength("aim_up")\
       )
 
-  if mouse_position_was != mouse_position:
+  if mouse_wait_time > 0:
+    mouse_wait_time -= delta
+  elif mouse_position_was != mouse_position:
     mouse_active = true
   elif self.joy_aim_direction.length_squared() > 0:
     mouse_active = false
