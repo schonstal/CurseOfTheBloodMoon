@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Gameplay.gd" type="Script" id=2]
-[ext_resource path="res://Arena/BloodMoonBackground.jpg" type="Texture" id=3]
 [ext_resource path="res://UI/HUD/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/GameOver/Paused.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Effects/Vignette/vignette.png" type="Texture" id=6]
@@ -28,10 +27,9 @@ extents = Vector2( 1056.45, 85.5123 )
 [node name="World" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Arena" type="Sprite" parent="."]
+[node name="Arena" type="Node2D" parent="."]
 visible = false
 position = Vector2( 0, -75 )
-texture = ExtResource( 3 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Arena"]
 position = Vector2( -1050, 0 )
