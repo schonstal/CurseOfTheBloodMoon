@@ -147,7 +147,7 @@ shape = SubResource( 3 )
 script = ExtResource( 7 )
 
 [node name="AttackTimer" type="Timer" parent="Behavior"]
-wait_time = 2.0
+wait_time = 2.5
 autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Behavior"]
